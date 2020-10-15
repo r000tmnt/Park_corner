@@ -48,18 +48,6 @@
               </li>
               
             </ul>
-            
-              <div class="outterLinks">
-                <a class="link" href="https://www.pixiv.net/users/3093390">
-                  <img src="images/pixiv_icon.ico" alt="Not found"></a>
-                
-                  <a class="link" href="https://www.furaffinity.net/user/r000tmnt/">
-                    <img src="images/fur-affinity_logo.png" alt="Not found">
-                  </a>
-                
-              </div>
-              
-
           </div>
         </nav>
       </div>
@@ -309,45 +297,48 @@
         <div class="row">
 
           <div class="col-md-4">
-            <div class="form-group">
-              <label for="">姓名: </label>
-              <input type="text" id="username" class="form-control">
-            </div>
-
-            <div class="form-group">
-              <lable for="">電話: </lable>
-              <input type="text" id="phone" class="form-control">
-            </div>
-
-            <div class="form-group">
-              <lable for="">Email: </lable>
-              <input type="text" id="email" class="form-control">
-            </div>
-
-            <div class="form-check">
-              <input type="radio" id="OC" class="form-check-input" checked>
-              <lable>角色設計</lable>
-            </div>
-
-            <div class="form-check">
-              <input type="radio" id="profile" class="form-check-input">
-              <lable>大頭貼</lable>
-            </div>
+            <form action="" method="POST" enctype="text/plain">
+              <div class="form-group">
+                <label for="">姓名: </label>
+                <input type="text" id="username" class="form-control">
+              </div>
+  
+              <div class="form-group">
+                <lable for="">電話: </lable>
+                <input type="text" id="phone" class="form-control">
+              </div>
+  
+              <div class="form-group">
+                <lable for="">Email: </lable>
+                <input type="text" id="email" class="form-control">
+              </div>
+  
+              <div class="form-check">
+                <input type="checkbox" id="OC" class="form-check-input" checked>
+                <lable>角色設計</lable>
+              </div>
+  
+              <div class="form-check">
+                <input type="checkbox" id="profile" class="form-check-input">
+                <lable>大頭貼</lable>
+              </div>
+              
+              <div class="form-check">
+                <input type="checkbox" id="cover" class="form-check-input">
+                <lable>書籍封面</lable>
+              </div>
+              <br>
+              <label for="detail">詳細說明： </label>
+              <div class="form-group">
+                <textarea id="detail"></textarea>
+              </div>
+  
+              <div class="text-right">
+                <a href="#" class="btn btn-secondary">取消</a>
+                <a href="#" class="btn btn-primary">確認</a>
+              </div>
+            </form>
             
-            <div class="form-check">
-              <input type="radio" id="cover" class="form-check-input">
-              <lable>書籍封面</lable>
-            </div>
-            <br>
-            <label for="detail">詳細說明： </label>
-            <div class="form-group">
-              <textarea id="detail"></textarea>
-            </div>
-
-            <div class="text-right">
-              <a href="#" class="btn btn-secondary">取消</a>
-              <a href="#" class="btn btn-primary">確認</a>
-            </div>
           </div>
           
         </div>
@@ -380,6 +371,20 @@
 
     <footer class="bg-dark">
       <div class="container">
+        <div class="outterLinks">
+          <a class="link" href="https://www.pixiv.net/users/3093390">
+            <img src="images/pixiv_icon.ico" alt="Not found"></a>
+          
+            <a class="link" href="https://www.furaffinity.net/user/r000tmnt/">
+              <img src="images/fur-affinity_logo.png" alt="Not found">
+            </a>
+
+            <a class="link" href="https://twitter.com/r000tmnt">
+              <img src="images/twitter_icon.png" alt="Not found">
+            </a>
+          
+        </div>
+
           <div class="text-center py-3">Park Corner &copy;Copyright 2020</div>
       </div>
     </footer>
@@ -389,5 +394,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
   </body>
 </html>

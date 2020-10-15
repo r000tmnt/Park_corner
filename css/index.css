@@ -6,19 +6,26 @@
 
 .outterLinks{
     display: flex;
-    width: 7%;
+    justify-content: center;
 }
 
 .logo > img:hover{
     filter: brightness(0);
+    transition: 0.5s;
 }
 
 .link{
-    margin-right: 0.5vw;
+    margin: 1vh 0.5vw;
 }
 
 .link > img{
-    max-width: 100%;
+    width: 50px;
+    filter: contrast(50%);
+}
+
+.link > img:hover{
+    filter: none;
+    transition: 0.5s;
 }
 
 .carousel-caption{
@@ -73,40 +80,48 @@ color: white;
 }
 
 @media screen and (max-width: 768px){
-.text{
-color: white;
-}
+    .link{
+        width: 10%;
+    }
 
-.demo{
-height: 40vh
-}
+    .text{
+    color: white;
+    }
 
-.desktop{
-display: none;
-}
+    .demo{
+    height: 40vh
+    }
 
-.mobile{
-display: block;
-}
+    .desktop{
+    display: none;
+    }
 
-.mobile > tbody, tr , td{
-display: block;
-}
+    .mobile{
+    display: block;
+    }
 
-.whoamI > a{
-color: lightgoldenrodyellow;
-}
+    .mobile > tbody, tr , td{
+    display: block;
+    }
 
-.whoamI > a:hover{
-color: whitesmoke;
-}
+    .whoamI > a{
+    color: lightgoldenrodyellow;
+    }
 
-#Pic{
-position: static !important;
-}
+    .whoamI > a:hover{
+    color: whitesmoke;
+    }
+
+    #Pic{
+    position: static !important;
+    }
 }
 
 @media screen and (max-width: 576px){
+    .link{
+        margin-right: 2vw;
+    }
+    
     thead{
     display: none;
     } 
