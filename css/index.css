@@ -104,11 +104,11 @@ color: white;
     display: block;
     }
 
-    .whoamI > a{
+    .refer{
     color: lightgoldenrodyellow;
     }
 
-    .whoamI > a:hover{
+    .refer:hover{
     color: whitesmoke;
     }
 
