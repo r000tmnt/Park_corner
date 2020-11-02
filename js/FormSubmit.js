@@ -1,5 +1,25 @@
 $(document).ready(function(){
 
+    function validateEmail(email){
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+
+    function validate(){
+        const $valid = $(".valid");
+        const email = $("#email").val();
+        $valid.text("");
+
+        if(validateEmail(email)){
+            $valid.text(email + "是有效的地址");
+            $valid.css("color", "green");
+        }else{
+            $valid.text(email + "為無效的地址");
+            $valid.css("color", "red");
+        }
+        return false;
+    }
+
     // var form = document.getElementById("theForm");
     //     console.log(form);
 
@@ -24,7 +44,8 @@ $(document).ready(function(){
             processData: false,
             success: function(data){
                 console.log(data);
-                alert("表單送出成功!")
+                validate;
+                alert("表單送出成功，謝謝您的聯絡。")
                 $("#theForm")[0].reset();
             },
             error: function(){

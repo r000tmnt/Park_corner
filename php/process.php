@@ -32,6 +32,45 @@ foreach($_FILES['files']["tmp_name"] as $key => $value){
 $showFile = json_encode($files);
 $showType = json_encode($checkBoxes);
 
+
+//email after submit
+use PHPMailer\PHPMailer\PHPMailer;
+require_once "Exception.php";
+require_once "PHPMailer.php";
+require_once "SMTP.php";
+
+$mail = new PHPMailer(true);
+try{
+  $mail->isSMTP();
+  $mail->SMTPOptions = array(
+    'ssl' => array(
+    'verify_peer' => false,
+    'verify_peer_name' => false,
+    'allow_self_signed' => true
+    )
+    );
+  $mail->SMTPDEbug = 2;
+  $mail->Host = 'smtp.gmail.com';
+  $mail->SMTPAuth = true;
+  $mail->Username = 'rick.t.ryahoocomtw653@gmail.com';
+  $mail->Password = 'osyuacjxaorhfiye';
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  $mail->Port = 587;
+
+  $mail->setFrom('rick.t.ryahoocomtw653@gmail.com', 'Vistor');//The email address used as SMTP server
+  $mail->addAddress('rick.t.ryahoocomtw653@gmail.com');//The address to recive email(use any email you have include the one for server)
+
+  $mail->isHTML(true);
+  $mail->Subject = 'Q&A or Commission';
+  $mail->Body = "<h3>Name: $name <br> Phone: $phone <br> Email: $email <br> Type: $showType <br> Files: $showFile <br> Message: $detail</h3>";
+  $mail->send();
+  echo "Message sent!";
+}catch (Exception $e){
+  echo "Mailer error: {$mail->ErrorInfo}";
+}
+
+
+
 $result = "\r\n姓名: $name\r\n 信箱: $email\r\n 電話: $phone\r\n 類別: $showType\r\n 檔案: $showFile\r\n 描述: $detail";
 
 echo $responce. $result;
