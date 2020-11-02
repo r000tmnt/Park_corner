@@ -280,66 +280,66 @@
 
     <!--Form-->
     <section class="bg-light" style="position: relative;">
-      <div class="container" id="theForm">
+      <div class="container">
         <div class="row">
 
           <div class="col-md-4">
-            <form id="theForm" method="POST">
+            <form id="theForm" enctype="multipart/form-data">
               <div class="form-group">
-                <label for="">姓名: </label>
-                <input type="text" id="username" class="form-control">
+                <label for="">*姓名: </label>
+                <input type="text" id="name" name="name" class="form-control">
               </div>
   
               <div class="form-group">
                 <lable for="">電話: </lable>
-                <input type="text" id="phone" class="form-control">
+                <input type="number" id="phone" name="phone" class="form-control">
               </div>
   
               <div class="form-group">
-                <lable for="">Email: </lable>
-                <input type="text" id="email" class="form-control">
+                <lable for="">*Email: </lable>
+                <input type="text" id="email" name="email" class="form-control">
               </div>
   
               <div class="form-check">
-                <input type="checkbox" id="OC" class="form-check-input Checkbox" value="OC" checked>
+                <input type="checkbox" id="OC" name="checkbox[]" class="form-check-input Checkbox" value="OC" checked>
                 <lable>角色設計</lable>
               </div>
 
               <div class="form-check">
-                <input type="checkbox" id="personal" class="form-check-input Checkbox" value="personal">
+                <input type="checkbox" id="personal" name="checkbox[]" class="form-check-input Checkbox" value="personal">
                 <lable>個人委託</lable>
               </div>
   
               <div class="form-check">
-                <input type="checkbox" id="profile" class="form-check-input Checkbox" value="profile">
+                <input type="checkbox" id="profile" name="checkbox[]" class="form-check-input Checkbox" value="profile">
                 <lable>大頭貼</lable>
               </div>
               
               <div class="form-check">
-                <input type="checkbox" id="cover" class="form-check-input Checkbox" value="cover">
+                <input type="checkbox" id="cover" name="checkbox[]" class="form-check-input Checkbox" value="cover">
                 <lable>書籍封面</lable>
               </div>
 
               <div class="form-check">
-                <input type="checkbox" id="other" class="form-check-input Checkbox" value="other">
+                <input type="checkbox" id="other" name="checkbox[]" class="form-check-input Checkbox" value="other">
                 <lable>其他</lable>
               </div>
 
-              <!-- <div class="form-check">
+              <div class="form-check">
                 <lable>參考附件
                   <p>*可多選</p>
                 </lable>
-                <input type="file" name="reference" id="reference" multiple>
-              </div> -->
+                <input type="file" name="files[]" id="file" multiple>
+              </div>
               <br>
-              <label for="detail">詳細說明： </label>
+              <label for="detail">*詳細說明： </label>
               <div class="form-group">
-                <textarea id="detail"></textarea>
+                <textarea id="detail" name="detail"></textarea>
               </div>
   
               <div class="text-right">
                 <input type="button" class="btn btn-secondary" value="取消">
-                <input type="submit" class="btn btn-primary" value="確認">
+                <input type="submit" class="btn btn-primary submitBtn" value="確認">
               </div>
             </form>
             

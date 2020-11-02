@@ -1,20 +1,31 @@
 $(document).ready(function(){
+
+    // var form = document.getElementById("theForm");
+    //     console.log(form);
+
     $("#theForm").submit(function(event){
         event.preventDefault();//防止頁面跳轉
 
-        //取表單各欄位的值(測試中)
-        var username = document.getElementById("username").value;
-        var phone = document.getElementById("phone").value;
-        var email = document.getElementById("email").value;
+        // var formData = {
+        //     'name': $("#name").val(),
+        //     'phone': $("#phone").val(),
+        //     'email': $("#email").val(),
+        //     'type': $('input[type=checkbox]').val(),
+        //     'references': $("#file").val(),
+        //     'detail': $("#detail").val()
+        // };
 
-        var checkBoxes = $(".Checkbox:checked").map(function(){//取有選取的checkbox
-            return this.value;
-        }).get().join(",");
+        $.ajax({
+            type: 'post',
+            url: './php/process.php',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(data){
+                console.log(data);
+            }
+        });
 
-        var text = $("#detail").val();
-
-        $.post("php/process.php", {username: username, phone: phone, email: email, checkBoxes: checkBoxes, detail: text}, function(data){
-            console.log(data);
-        })
     });
 });
