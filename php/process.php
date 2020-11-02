@@ -19,12 +19,6 @@ if (isset($_POST["name"], $_POST["phone"], $_POST["email"], $_POST["checkbox"], 
     $files = $_FILES['files']['name'];
 }
 
-
-
-$allow_ext = array("pdf", "doc", "docx", "jpg", "png", "jpeg", "gif");
-//$files = array_filter($_FILES['files']['name']);
-//something like that to be used before processing files.
-
 // Count # of uploaded files in array
 if(is_countable($totalFile)){
     $totalFile = count($_FILES['files']['name']);

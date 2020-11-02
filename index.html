@@ -329,7 +329,7 @@
                 <lable>參考附件
                   <p>*可多選</p>
                 </lable>
-                <input type="file" name="files[]" id="file" multiple>
+                <input type="file" name="files[]" id="file" onchange="checkEXT(this)" multiple>
               </div>
               <br>
               <label for="detail">*詳細說明： </label>
@@ -400,5 +400,27 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
     <script src="js/FormSubmit.js"></script>
+
+    <script>
+      var allow_ext = ["pdf", "doc", "docx", "jpg", "png", "jpeg", "gif"];
+    function checkEXT(inputFiles){
+        if(inputFiles.type == "file"){
+            var sFileName = inputFiles.value;
+            if(sFileName.length > 0){
+                var blnValid = false;
+                for(var i=0; i < allow_ext.length; i++){
+                    var sCurExtendion = allow_ext[i];
+                    if(sFileName.substr(sFileName.length - sCurExtendion.length, sCurExtendion.length).toLowerCase() == sCurExtendion.toLowerCase()){
+                        blnValid = true;
+                        break;
+                    }
+                }
+                if(!blnValid){
+                    alert("抱歉" + sFileName + "不符合接受的檔案類型, 允許的檔案為: " + allow_ext.join(","));
+                }
+            }
+        }
+    };
+    </script>
   </body>
 </html>

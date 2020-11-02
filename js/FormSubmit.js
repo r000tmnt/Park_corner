@@ -24,6 +24,11 @@ $(document).ready(function(){
             processData: false,
             success: function(data){
                 console.log(data);
+                alert("表單送出成功!")
+                $("#theForm")[0].reset();
+            },
+            error: function(){
+                alert("表單寄送失敗!")
             }
         });
 
