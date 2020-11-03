@@ -70,8 +70,19 @@ try{
 }
 
 
-
 $result = "\r\n姓名: $name\r\n 信箱: $email\r\n 電話: $phone\r\n 類別: $showType\r\n 檔案: $showFile\r\n 描述: $detail";
 
 echo $responce. $result;
+
+//connect to  database
+require_once "connect.php";
+$sql = "INSERT INTO submit_data (name, phone, email, checkBoxs, fileNames, detail) VALUES ('$name', '$phone', '$email', '$showType', '$showFile', '$detail')";
+
+if(mysqli_query($db, $sql)){
+  echo "更新成功";
+}else{
+  echo "出錯: ".$sql."<br>".mysqli_error($db);
+}
+
+mysqli_close($db);
 ?>
