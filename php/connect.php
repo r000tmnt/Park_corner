@@ -5,10 +5,12 @@ $dbUsername = "root";
 $dbPassword = "poi98799";
 $dbName = "commission_formdata";
 
-$db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+$db = mysqli_connect($dbHost, $dbUsername, $dbPassword, $dbName);
 
 //查看是否連線成成功
-if($db -> connect_error){
-    die("連線失敗: ".$db -> connect_error);
+if(!$db){
+    die("連線失敗: ".mysqli_connect_error());
+}else{
+    echo "連線成功";
 }
 ?>
