@@ -80,40 +80,49 @@ color: white;
 }
 
 @media screen and (max-width: 768px){
+   .row-mobile{
+       margin-left: 0 !important;
+   }
+
     .link{
         width: 10%;
     }
 
     .text{
-    color: white;
+        color: white;
     }
 
     .demo{
-    height: 40vh
+        height: 40vh;
     }
 
     .desktop{
-    display: none;
+        display: none;
     }
 
     .mobile{
-    display: block;
+        display: block;
     }
 
     .mobile > tbody, tr , td{
-    display: block;
+        display: block;
     }
 
     .refer{
-    color: lightgoldenrodyellow;
+        color: lightgoldenrodyellow;
     }
 
     .refer:hover{
-    color: whitesmoke;
+        color: whitesmoke;
     }
 
     #Pic{
-    position: static !important;
+        margin-top: 3vh;
+        position: static !important;
+    }
+
+    .form-decoration{
+        margin-right: 0 !important;
     }
 }
 
@@ -123,10 +132,10 @@ color: white;
     }
     
     thead{
-    display: none;
+        display: none;
     } 
 
     tbody tr td{
-    display: block;
+        display: block;
     }
 }
