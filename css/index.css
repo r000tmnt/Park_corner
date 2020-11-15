@@ -1,7 +1,84 @@
+@keyframes loading {
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+
+@keyframes fadeIN {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@keyframes fadeOUT {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+
+@keyframes popUP{
+    from{font-size: 1rem;}
+    to{font-size: 2rem;}
+}
+
+.submit_modal{
+    width: 100vw;
+    border-radius: 10px;
+    /* border: 1px solid red; */
+    position: relative;
+    z-index: 3;
+    margin-top: -90%;
+    /* background-color: rgba(34, 34, 34, 0.75); */
+}
+
+#animation{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% -50%);
+    position: absolute;
+    /* border: 1px solid blue; */
+    border-radius: 50px;
+    padding: 1% 2%;
+    background-color: white;
+}
+
+.fadeIN{
+    animation: fadeIN 1s ease-in forwards;
+}
+
+.fadeOUT{
+    animation: fadeOUT 1s ease-in forwards;
+}
+
+.popUP{
+    animation: popUP 1s ease-in-out;
+}
+
+.outterCircle{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: steelblue;
+    animation: loading 1s linear infinite;
+    margin: 0 auto;
+}
+
+.innerCircle{
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.loading{
+    text-align: center;
+}
+
 .bg-cover{
     height: 50vh;
     background-position: center;
     background-size: cover; 
+}
+
+.row{
+    margin-right: 0;
 }
 
 .outterLinks{
@@ -67,6 +144,15 @@ display: none;
 resize: none;
 width: 100%;
 height: 20vh;
+}
+
+.modal{
+    border: 1px solid red;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(34, 34, 34, 0.75);
+    position: relative;
+    z-index: 3;
 }
 
 .recruit{
