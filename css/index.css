@@ -24,7 +24,7 @@
     /* border: 1px solid red; */
     position: relative;
     z-index: 3;
-    margin-top: -90%;
+    margin: -120% 20% 0 0;
     /* background-color: rgba(34, 34, 34, 0.75); */
 }
 
@@ -52,11 +52,13 @@
 }
 
 #close{
+    width: 50px;
     border-radius: 50px;
     border: 1px solid steelblue;
     background: none;
-    float: right;
+    margin-left: 30%;
     cursor: pointer;
+    padding-bottom: 1%;
 }
 
 #close:hover{
@@ -224,6 +226,11 @@ footer{
     .form-decoration{
         margin-right: 0 !important;
     }
+
+    .submit_modal{
+        margin: -500% 40% 0 0;
+    }
+    
 }
 
 @media screen and (max-width: 576px){

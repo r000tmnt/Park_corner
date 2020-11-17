@@ -1,8 +1,13 @@
 $(document).ready(function(){
     var modal = document.querySelector(".submit_modal");
-    var circle = document.querySelector(".outterCircle");
     var loading = document.querySelector(".loading");
-    var closeBtn = document.getElementById("close");
+    var closeBtn = '<button id="close" type="button">確定</button>';
+
+    var success = '<i class="fas fa-check" style="font-size: 3rem; color: green; margin-left: 30%"></i><h3 class="loading">上傳成功!</h3>';
+
+    var failed = '<i class="fas fa-times" style="font-size: 3rem; color: red; margin-left: 30%"></i><h3 class="loading">上傳失敗!</h3>';
+
+    var recover = '<div class="outterCircle"><div class="innerCircle"></div></div><h3 class="loading">上傳中...</h3>';
 
     function validateEmail(email){
         const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -23,10 +28,7 @@ $(document).ready(function(){
         }
         return false;
     }
-
-    closeBtn.addEventListener("click", function(){
-        modal.style['display'] = 'none';
-    });
+    
 
     // var form = document.getElementById("theForm");
     //     console.log(form);
@@ -59,21 +61,24 @@ $(document).ready(function(){
                 success: function(data){
                     console.log(data);
                     validate;
-                    circle.classList.add("fadeOUT");
-                    var success = '上傳成功!'
-                    loading.innerHTML= success;
+                    $("#animation").html(success);
+                    $("#animation").append(closeBtn);
                     loading.classList.add("popUP");
                     $("#theForm")[0].reset();
                 },
                 error: function(){
-                    var failed = '上傳失敗!'
-                    loading.innerHTML= failed;
+                    $("#animation").html(failed);
+                    $("#animation").append(closeBtn);
                     loading.classList.add("popUP");
+                    $("#theForm")[0].reset();
                 }
             });
         }
 
-        
+        $("#animation").on("click", "#close", function(){
+            modal.style['display'] = 'none';
+            $("#animation").html(recover);
+        })
 
     });
 });
