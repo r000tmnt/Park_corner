@@ -1,5 +1,8 @@
 $(document).ready(function(){
     var modal = document.querySelector(".submit_modal");
+    var circle = document.querySelector(".outterCircle");
+    var loading = document.querySelector(".loading");
+    var closeBtn = document.getElementById("close");
 
     function validateEmail(email){
         const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -21,17 +24,9 @@ $(document).ready(function(){
         return false;
     }
 
-    function fadeOUT(){
-        setTimeout(function(){
-            var circle = document.querySelector(".outterCircle");
-            var loading = document.querySelector(".loading");
-            circle.classList.replace("outterCircle", "fadeOUT");
-            var success = '上傳成功!'
-            loading.innerHTML= success;
-            loading.classList.add("popUP");
-            modal.classList.add("fadeOUT");
-          }, 3000);
-      }
+    closeBtn.addEventListener("click", function(){
+        modal.style['display'] = 'none';
+    });
 
     // var form = document.getElementById("theForm");
     //     console.log(form);
@@ -53,7 +48,6 @@ $(document).ready(function(){
         }else{
             modal.classList.add("fadeIN");
             modal.style['display'] = 'block';
-            fadeOUT();
 
             $.ajax({
                 type: 'post',
@@ -65,10 +59,16 @@ $(document).ready(function(){
                 success: function(data){
                     console.log(data);
                     validate;
+                    circle.classList.add("fadeOUT");
+                    var success = '上傳成功!'
+                    loading.innerHTML= success;
+                    loading.classList.add("popUP");
                     $("#theForm")[0].reset();
                 },
                 error: function(){
-                    alert("表單寄送失敗!")
+                    var failed = '上傳失敗!'
+                    loading.innerHTML= failed;
+                    loading.classList.add("popUP");
                 }
             });
         }
