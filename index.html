@@ -298,6 +298,7 @@
               <div class="form-group">
                 <lable for="">*Email: </lable>
                 <input type="email" id="email" name="email" class="form-control" onchange="validate()">
+                <p id="valid"></p>
               </div>
   
               <div class="form-check">
@@ -420,7 +421,7 @@
 
     <script>
     var allow_ext = ["pdf", "doc", "docx", "jpg", "png", "jpeg", "gif"];
-    function checkEXT(inputFiles){
+    function checkEXT(inputFiles){//檢查夾帶的檔案類型
         if(inputFiles.type == "file"){
             var sFileName = inputFiles.value;
             if(sFileName.length > 0){
@@ -444,17 +445,19 @@
         return re.test(email);
     }
 
-    function validate(){
+    function validate(){//驗證信箱地址是否正確
         const email = $("#email").val();
+        let valid = document.getElementById("valid");
 
         if(validateEmail(email)){
-            alert(email + "是有效的地址");
+            valid.innerHTML = email + "是有效的地址";
+            valid.style['color'] = 'green';
         }else{
-            alert(email + "為無效的地址");
+            valid.innerHTML = email + "為無效的地址";
+            valid.style['color'] = 'red';
         }
         return false;
     }
-    console.log(form);
     </script>
   </body>
 </html>

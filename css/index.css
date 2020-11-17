@@ -245,4 +245,18 @@ footer{
     tbody tr td{
         display: block;
     }
+
+    .submit_modal{
+        margin-right: 30%;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .link{
+        margin-right: 4vw;
+    }
+    
+    .demo{
+        height: 45vh;
+    }
 }
