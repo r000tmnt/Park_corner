@@ -87,6 +87,10 @@
     text-align: center;
 }
 
+body{
+    background-color: #f8f9fa!important;
+}
+
 .bg-cover{
     height: 50vh;
     background-position: center;
