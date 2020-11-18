@@ -3,7 +3,7 @@ $(document).ready(function(){
     var loading = document.querySelector(".loading");
     
     //用來關閉modal的按鈕
-    var closeBtn = '<button id="close" class="btn btn-success" type="button">確定</button>';
+    var closeBtn = '<button id="close" type="button">確定</button>';
     //傳送成功時顯示的樣式
     var success = '<i class="fas fa-check" style="font-size: 3rem; color: green; margin-left: 30%"></i><h3 class="loading">上傳成功!</h3>';
     //傳送失敗時顯示的樣式
