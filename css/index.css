@@ -251,7 +251,24 @@ footer{
     }
 
     .submit_modal{
-        margin-right: 30%;
+        margin-right: 60%;
+    }
+
+    #animation{
+        width: 60vw;
+        height: 30vh;
+    }
+
+    #animation > i{
+        font-size: 7rem!important;
+        margin-left: 34%!important;
+    }
+
+    #close{
+        width: 100px;
+        height: 50px;
+        margin: 10% 0 0 33%;
+        font-size: 1.2rem;
     }
 }
 

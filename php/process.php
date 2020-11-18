@@ -1,4 +1,5 @@
 <?php
+header("Content-Type:text/html; charset=utf-8");
 error_reporting(E_ALL);
 
 $name = "";
@@ -19,14 +20,15 @@ if (isset($_POST["name"], $_POST["phone"], $_POST["email"], $_POST["checkbox"], 
     $files = $_FILES['files']['name'];
 }
 
+$detail = mb_convert_encoding($detail, "utf-8");
+
 // Count # of uploaded files in array
 if(is_countable($totalFile)){
     $totalFile = count($_FILES['files']['name']);
 }
 
-foreach($_FILES['files']["tmp_name"] as $key => $value){
-  $targetPath = "uploads/" . basename($_FILES['files']['name'][$key]);
-  move_uploaded_file($value, $targetPath);
+foreach($_FILES['files']["tmp_name"]as $key=>$value){
+  $targetPath="uploads/".basename($_FILES['files']['name'][$key]);move_uploaded_file($value,$targetPath);
 }
 
 $showFile = json_encode($files);
