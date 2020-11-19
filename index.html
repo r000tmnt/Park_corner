@@ -298,7 +298,7 @@
   
               <div class="form-group">
                 <lable for="">*Email: </lable>
-                <input type="email" id="email" name="email" class="form-control" onchange="validate()">
+                <input type="email" id="email" name="email" class="form-control">
                 <p id="valid"></p>
               </div>
   
@@ -331,7 +331,7 @@
                 <lable>參考附件
                   <p>*可多選</p>
                 </lable>
-                <input type="file" name="files[]" id="file" onchange="checkEXT(this)" multiple>
+                <input type="file" name="files[]" id="file" multiple>
               </div>
               <br>
               <label for="detail">*詳細說明： </label>
@@ -419,46 +419,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
     <script src="js/FormSubmit.js"></script>
-
-    <script>
-    var allow_ext = ["pdf", "doc", "docx", "jpg", "png", "jpeg", "gif"];
-    function checkEXT(inputFiles){//檢查夾帶的檔案類型
-        if(inputFiles.type == "file"){
-            var sFileName = inputFiles.value;
-            if(sFileName.length > 0){
-                var blnValid = false;
-                for(var i=0; i < allow_ext.length; i++){
-                    var sCurExtendion = allow_ext[i];
-                    if(sFileName.substr(sFileName.length - sCurExtendion.length, sCurExtendion.length).toLowerCase() == sCurExtendion.toLowerCase()){
-                        blnValid = true;
-                        break;
-                    }
-                }
-                if(!blnValid){
-                    alert("抱歉" + sFileName + "不符合接受的檔案類型, 允許的檔案為: " + allow_ext.join(","));
-                }
-            }
-        }
-    };
-
-    function validateEmail(email){
-        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-    }
-
-    function validate(){//驗證信箱地址是否正確
-        const email = $("#email").val();
-        let valid = document.getElementById("valid");
-
-        if(validateEmail(email)){
-            valid.innerHTML = email + "是有效的地址";
-            valid.style['color'] = 'green';
-        }else{
-            valid.innerHTML = email + "為無效的地址";
-            valid.style['color'] = 'red';
-        }
-        return false;
-    }
-    </script>
   </body>
 </html>
