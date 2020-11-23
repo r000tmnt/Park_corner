@@ -2,6 +2,9 @@
 header("Content-Type:text/html; charset=utf-8");
 error_reporting(E_ALL);
 
+//connect to database
+require_once("connect.php");
+
 $name = "";
 $phone = "";
 $email = "";
@@ -76,8 +79,7 @@ $result = "\r\n姓名: $name\r\n 信箱: $email\r\n 電話: $phone\r\n 類別: $
 
 echo $responce. $result;
 
-//connect to  database
-require_once "connect.php";
+//insert to  database
 $sql = "INSERT INTO submit_data (name, phone, email, checkBoxs, fileNames, detail) VALUES ('$name', '$phone', '$email', '$showType', '$showFile', '$detail')";
 
 if(mysqli_query($db, $sql)){
