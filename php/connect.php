@@ -13,4 +13,6 @@ if(!$db){
 }else{
     echo "連線成功";
 }
+
+mysqli_set_charset($db, "utf8");
 ?>
