@@ -95,6 +95,26 @@ body {
   background-color: #f8f9fa !important;
 }
 
+body .lang {
+  padding: 1.2vw;
+  float: right;
+}
+
+body .lang .active {
+  border-radius: 10px;
+  background-color: steelblue;
+  color: white;
+  padding: 3px;
+}
+
+body .lang a {
+  margin-left: 0.3vw;
+}
+
+body .lang a:hover {
+  color: white;
+}
+
 body .bg-cover {
   height: 50vh;
   background-position: center;

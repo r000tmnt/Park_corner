@@ -54,6 +54,24 @@
 body{
     background-color: #f8f9fa!important;
 
+    .lang{
+        padding: 1.2vw;
+        float: right;
+        .active{
+            border-radius: 10px;
+            background-color: steelblue;
+            color: white;
+            padding: 3px;
+        }
+        a{ 
+            margin-left: 0.3vw;
+            &:hover{
+                color: white;
+            }
+        }
+        
+    }
+
     .bg-cover{
         height: 50vh;
         background-position: center;
