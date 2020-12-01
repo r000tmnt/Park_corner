@@ -16,8 +16,8 @@
   <body>
 
     <div class="lang">
-      <a href="#zh" language="zh" class="active">中文</a>
-      <a href="#eng" language="eng">English</a>
+      <a href="#zh" language="zh" class="changeLan active">中文</a>
+      <a href="#eng" class="changeLan" language="eng">English</a>
     </div>
 
     <!--NavBar-->
@@ -170,28 +170,28 @@
     <!--Commission Detail-->
     <section class="py-5">
       <div class="container">
-        <h1 class="text-center">委託流程</h1>
+        <h1 id="workFlow" class="text-center">委託流程</h1>
         <div class="row">
           <div class="col-md-6">
-            <div class="d-flex">
+            <div id="statePurpose" class="d-flex">
               <i class="fas fa-list-alt fa-4x text-success"></i>
               <ul>
                 <h4>1.請聲明委託用途</h4>
-                <li>請以私訊或電子信件聯絡。 基本可用於個人收藏，小型同人場販售。</li>
-                <li>上傳插畫至個人部落格(FB、Twiiter)請標註會師名稱。</li>
-                <li>尺寸預設為A4，300dpi。 若有其他尺寸需求請事先告至。</li>
-                <li> 會師接受原創、二創和獸人或NSFW...等題材，但不接受血腥、過激的元素。 請提供參考圖或是內容描述(越詳盡越好)。</li>
+                <li>請以私訊或電子信件聯絡。 基本可用於個人收藏。</li>
+                <li>上傳插畫至個人部落格(FB、Twiiter)請標註繪師名稱。</li>
+                <li>尺寸預設為A4，300dpi。 若有其他尺寸需求請事先告知。</li>
+                <li>繪師接受原創、二創和獸人或NSFW...等題材，但不接受血腥、過激的元素。 請提供參考圖或是內容描述(越詳盡越好)。</li>
               </ul>
             </div>
 
           </div>
           <div class="col-md-6">
-            <div class="d-flex">
+            <div id="payment" class="d-flex">
               <i class="fas fa-donate fa-4x text-success"></i>
             <ul>
               <h4>2.付款相關</h4>
               <li>作品最多可提出3次修改，超過視情況加收費用。</li>
-              <li>委託金可以分兩次或一次付清。兩次分為草稿確認與完稿確認。 談灣國內請匯至指定銀行帳戶，海外委託請用Paypal付款。</li>
+              <li>委託金可以分兩次或一次付清。兩次分為草稿確認與完稿確認。 台灣國內請匯至指定銀行帳戶，海外委託請用Paypal付款。</li>
               <li>繪師有權將委託視為自己的作品之一，並發布於社群網站(如Pixix、Twitter)。 若不願公開請事先告知。</li>
               <li>一般公司商業委託，請另外來信詢價。</li>
             </ul>
@@ -206,11 +206,11 @@
     <section style="position: relative;">
       <div class="container">
         <div class="row">
-          <div class="col-md-12" style="z-index: 1;">
+          <div id="reference" class="col-md-12" style="z-index: 1;">
+            <h1>參考</h1>
+              <p>*未列出格式不代表無法接受，可與繪師討論</p>
 
-              <table class="table desktop"> 
-                <h1>參考</h1>
-                <p>*未列出格式不代表無法接受，可與繪師討論</p>
+              <table id="desktop" class="table desktop"> 
                 <thead>
                   <tr>
                     <th><h4>線搞</h4></th>
@@ -242,7 +242,7 @@
               </table>
 
               <!--Table for mobile-->
-              <table class="table mobile"> 
+              <table id="mobile" class="table mobile"> 
                 <tbody>
                   <tr>
                     <td>線搞</td>
@@ -294,50 +294,49 @@
               </div>
   
               <div class="form-group">
-                <lable for="">電話: </lable>
+                <label for="">電話: </label>
                 <input type="text" id="phone" name="phone" class="form-control">
               </div>
   
               <div class="form-group">
-                <lable for="">*Email: </lable>
+                <label for="">*Email: </label>
                 <input type="email" id="email" name="email" class="form-control">
                 <p id="valid"></p>
               </div>
   
               <div class="form-check">
                 <input type="checkbox" id="OC" name="checkbox[]" class="form-check-input Checkbox" value="OC" checked>
-                <lable>角色設計</lable>
+                <label>角色設計</label>
               </div>
 
               <div class="form-check">
                 <input type="checkbox" id="personal" name="checkbox[]" class="form-check-input Checkbox" value="personal">
-                <lable>個人委託</lable>
+                <label>個人委託</label>
               </div>
   
               <div class="form-check">
                 <input type="checkbox" id="profile" name="checkbox[]" class="form-check-input Checkbox" value="profile">
-                <lable>大頭貼</lable>
+                <label>大頭貼</label>
               </div>
               
               <div class="form-check">
                 <input type="checkbox" id="cover" name="checkbox[]" class="form-check-input Checkbox" value="cover">
-                <lable>書籍封面</lable>
+                <label>書籍封面</label>
               </div>
 
               <div class="form-check">
                 <input type="checkbox" id="other" name="checkbox[]" class="form-check-input Checkbox" value="other">
-                <lable>其他</lable>
+                <label>其他</label>
               </div>
 
               <div class="form-check">
-                <lable>參考附件
-                  <p>*可多選</p>
-                </lable>
+                <label>參考附件</label>
+                <label>*可多選</label>
                 <input type="file" name="files[]" id="file" multiple>
               </div>
               <br>
-              <label for="detail">*詳細說明： </label>
               <div class="form-group">
+                <label for="detail">*詳細說明：</label>
                 <textarea id="detail" name="detail"></textarea>
               </div>
   
