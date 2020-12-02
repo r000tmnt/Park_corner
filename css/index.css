@@ -96,7 +96,7 @@ body {
 }
 
 body .lang {
-  padding: 1.2vw;
+  padding: 1.6vw;
   float: right;
 }
 
@@ -265,6 +265,9 @@ body footer .outterLinks .link img:hover {
 }
 
 @media (max-width: 768px) {
+  body .lang {
+    padding: 2.7vw;
+  }
   body .row-mobile {
     margin-left: 0 !important;
   }
@@ -276,9 +279,12 @@ body footer .outterLinks .link img:hover {
   }
   body .refer:hover {
     color: whitesmoke;
+    background-color: rgba(34, 34, 34, 0.7);
+    -webkit-transition: .5s;
+    transition: .5s;
   }
   body .demo {
-    height: 33vh !important;
+    height: 43vh !important;
   }
   body .desktop {
     display: none;

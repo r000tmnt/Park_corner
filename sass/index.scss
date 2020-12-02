@@ -55,7 +55,7 @@ body{
     background-color: #f8f9fa!important;
 
     .lang{
-        padding: 1.2vw;
+        padding: 1.6vw;
         float: right;
         .active{
             border-radius: 10px;
@@ -200,6 +200,10 @@ body{
     }
 
     @include large{
+        .lang{
+            padding: 2.7vw;
+        }
+
         .row-mobile{
             margin-left: 0 !important;
         }
@@ -212,11 +216,13 @@ body{
             color: lightgoldenrodyellow;
             &:hover{
                 color: whitesmoke;
+                background-color: rgba(34, 34, 34, 0.7);
+                transition: .5s;
             }
         }
     
         .demo{
-            height: 33vh!important;
+            height: 43vh!important;
         }
     
         .desktop{
