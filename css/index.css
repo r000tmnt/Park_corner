@@ -137,7 +137,7 @@ body .row .logo img:hover {
 }
 
 body .row .demo {
-  height: 30vh;
+  height: 33vh;
 }
 
 body .row .desktop {
@@ -268,6 +268,9 @@ body footer .outterLinks .link img:hover {
   body .lang {
     padding: 2.7vw;
   }
+  body #Commission_Detail {
+    margin-top: 7vh;
+  }
   body .row-mobile {
     margin-left: 0 !important;
   }
@@ -334,8 +337,11 @@ body footer .outterLinks .link img:hover {
 }
 
 @media (max-width: 480px) {
+  body #Commission_Detail {
+    margin-top: 10vh;
+  }
   body .demo {
-    height: 33vh !important;
+    height: 45vh !important;
   }
   body .link {
     margin-right: 4vw !important;

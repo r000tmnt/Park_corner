@@ -110,8 +110,6 @@ window.onload = function(){
 
                 price[i].innerHTML = languages[attr].table[i+5];
                 note[i].innerHTML = languages[attr].table[i+8];
-
-                Flabel[i].innerHTML = languages[attr].Form[i];
             }
 
             for(let i=0; i < Flabel.length; i++){

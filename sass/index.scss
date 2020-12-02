@@ -93,7 +93,7 @@ body{
         }
 
         .demo{
-            height: 30vh;
+            height: 33vh;
         }
 
         .desktop{
@@ -204,6 +204,10 @@ body{
             padding: 2.7vw;
         }
 
+        #Commission_Detail{
+            margin-top: 7vh;
+        }
+
         .row-mobile{
             margin-left: 0 !important;
         }
@@ -279,8 +283,12 @@ body{
     }
 
     @include small{
+        #Commission_Detail{
+            margin-top: 10vh;
+        }
+
         .demo{
-            height: 33vh!important;
+            height: 45vh!important;
         }
 
         .link{
