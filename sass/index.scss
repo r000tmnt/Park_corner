@@ -57,6 +57,9 @@ body{
     .lang{
         float: right;
         margin-top: 2vh;
+        &:focus{
+            outline: none;
+        }
         .active{
             border-radius: 10px;
             background-color: steelblue;
@@ -150,7 +153,6 @@ body{
                     text-align: center;
                 }
                 #close{
-                    width: 50px;
                     border-radius: 50px;
                     border: 1px solid steelblue;
                     background: none;
@@ -251,6 +253,9 @@ body{
     
         .submit_modal{
             margin: -500% 40% 0 0!important;
+            .close_eng{
+                margin-left: 24%!important;
+            }
         }
     }
 
@@ -262,13 +267,16 @@ body{
                 height: 30vh;
                 i{
                     font-size: 7rem!important;
-                    margin-left: 34%!important;
+                    margin-left: 38%!important;
                 }
                 #close{
                     width: 100px;
                     height: 50px;
-                    margin: 10% 0 0 33%;
+                    margin: 10% 0 0 33%!important;
                     font-size: 1.2rem;
+                }
+                .close_eng{
+                    margin-left: 34%!important;
                 }
             }
         }

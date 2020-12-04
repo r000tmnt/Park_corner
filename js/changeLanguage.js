@@ -11,6 +11,7 @@ window.onload = function(){
     var text = document.getElementById("aboutMe");
     var who = document.getElementById("whoamI");
     var contact = document.getElementById("contact");
+    var loading = document.querySelector(".loading");
 
     //Commission workflow
     var statePurpose = document.getElementById("statePurpose");
@@ -31,6 +32,7 @@ window.onload = function(){
     //Form
     var form = document.getElementById("theForm");
     var Flabel = form.querySelectorAll("label")
+    var eng = $("#eng");
     console.log(trM);
 
 
@@ -126,6 +128,12 @@ window.onload = function(){
             trM[2].innerHTML = '<td>'+ languages[attr].table[4] +'</td><td data-th="油彩厚塗"><p class="demo bg-cover" style="background-image: url(images/Commission_Demo-FullShading.jpg);"></p></td><td>'+ languages[attr].table[7] +'</td>'
 
             trM[3].innerHTML = ' <td>Notes</td><td><p>'+ languages[attr].table[8] +'</p><p>'+ languages[attr].table[9] +'</p><p>'+ languages[attr].table[10] +'</p></td>';
+
+            if(eng.is(".active")){
+                loading.innerHTML = "Uploading...";
+            }else{
+                loading.innerHTML = "上傳中...";
+            }
         });
     })
 }

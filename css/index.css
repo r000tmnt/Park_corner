@@ -100,6 +100,10 @@ body .lang {
   margin-top: 2vh;
 }
 
+body .lang:focus {
+  outline: none;
+}
+
 body .lang .active {
   border-radius: 10px;
   background-color: steelblue;
@@ -203,7 +207,6 @@ body .row .submit_modal #animation .loading {
 }
 
 body .row .submit_modal #animation #close {
-  width: 50px;
   border-radius: 50px;
   border: 1px solid steelblue;
   background: none;
@@ -308,6 +311,9 @@ body footer .outterLinks .link img:hover {
   body .submit_modal {
     margin: -500% 40% 0 0 !important;
   }
+  body .submit_modal .close_eng {
+    margin-left: 24% !important;
+  }
 }
 
 @media (max-width: 576px) {
@@ -320,13 +326,16 @@ body footer .outterLinks .link img:hover {
   }
   body .submit_modal #animation i {
     font-size: 7rem !important;
-    margin-left: 34% !important;
+    margin-left: 38% !important;
   }
   body .submit_modal #animation #close {
     width: 100px;
     height: 50px;
-    margin: 10% 0 0 33%;
+    margin: 10% 0 0 33% !important;
     font-size: 1.2rem;
+  }
+  body .submit_modal #animation .close_eng {
+    margin-left: 34% !important;
   }
   body .link {
     margin-right: 2vw !important;
