@@ -96,8 +96,8 @@ body {
 }
 
 body .lang {
-  padding: 1.2vw;
   float: right;
+  margin-top: 2vh;
 }
 
 body .lang .active {
@@ -265,9 +265,6 @@ body footer .outterLinks .link img:hover {
 }
 
 @media (max-width: 768px) {
-  body .lang {
-    padding: 2.7vw;
-  }
   body #Commission_Detail {
     margin-top: 7vh;
   }

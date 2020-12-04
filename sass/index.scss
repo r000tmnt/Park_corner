@@ -55,8 +55,8 @@ body{
     background-color: #f8f9fa!important;
 
     .lang{
-        padding: 1.2vw;
         float: right;
+        margin-top: 2vh;
         .active{
             border-radius: 10px;
             background-color: steelblue;
@@ -200,10 +200,6 @@ body{
     }
 
     @include large{
-        .lang{
-            padding: 2.7vw;
-        }
-
         #Commission_Detail{
             margin-top: 7vh;
         }
