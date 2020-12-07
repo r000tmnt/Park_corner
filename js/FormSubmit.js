@@ -21,6 +21,8 @@ $(document).ready(function(){
     //關閉modal後回到初始的樣子
     var recover = '<div class="outterCircle"><div class="innerCircle"></div></div><h3 class="loading">上傳中...</h3>';
 
+    var recover_eng = '<div class="outterCircle"><div class="innerCircle"></div></div><h3 class="loading">Uploading...</h3>';
+
     
     function validateEmail(email){
         const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -134,7 +136,13 @@ $(document).ready(function(){
 
         $("#animation").on("click", "#close", function(){
             modal.style['display'] = 'none';
-            $("#animation").html(recover);
+
+            if(zh.is(".active")){
+                $("#animation").html(recover);
+            }else{
+                $("#animation").html(recover_eng);
+            }
+            
         })
 
     });
