@@ -165,24 +165,30 @@ body .row #detail {
 
 body .row .submit_modal {
   width: 100vw;
-  border-radius: 10px;
-  /* border: 1px solid red; */
-  position: relative;
   z-index: 3;
-  margin: -120% 20% 0 0;
   /* background-color: rgba(34, 34, 34, 0.75); */
 }
 
 body .row .submit_modal #animation {
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50% -50%);
-          transform: translate(-50% -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   position: absolute;
   /* border: 1px solid blue; */
   border-radius: 50px;
   padding: 1% 2%;
   background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 body .row .submit_modal #animation .outterCircle {
@@ -210,7 +216,6 @@ body .row .submit_modal #animation #close {
   border-radius: 50px;
   border: 1px solid steelblue;
   background: none;
-  margin-left: 30%;
   cursor: pointer;
   padding-bottom: 1%;
 }
@@ -308,11 +313,8 @@ body footer .outterLinks .link img:hover {
   body .form-decoration {
     margin-right: 0 !important;
   }
-  body .submit_modal {
-    margin: -500% 40% 0 0 !important;
-  }
-  body .submit_modal .close_eng {
-    margin-left: 24% !important;
+  body .submit_modal #animation {
+    margin-top: -50vh;
   }
 }
 
@@ -326,16 +328,9 @@ body footer .outterLinks .link img:hover {
   }
   body .submit_modal #animation i {
     font-size: 7rem !important;
-    margin-left: 38% !important;
   }
   body .submit_modal #animation #close {
-    width: 100px;
-    height: 50px;
-    margin: 10% 0 0 33% !important;
     font-size: 1.2rem;
-  }
-  body .submit_modal #animation .close_eng {
-    margin-left: 34% !important;
   }
   body .link {
     margin-right: 2vw !important;
