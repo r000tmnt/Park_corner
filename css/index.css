@@ -176,7 +176,7 @@ body .row .submit_modal #animation {
           transform: translate(-50%, -50%);
   position: absolute;
   /* border: 1px solid blue; */
-  border-radius: 50px;
+  border-radius: 25px;
   padding: 1% 2%;
   background-color: white;
   display: -webkit-box;
@@ -210,6 +210,7 @@ body .row .submit_modal #animation .outterCircle .innerCircle {
 
 body .row .submit_modal #animation .loading {
   text-align: center;
+  margin: 5px 0 15px 0;
 }
 
 body .row .submit_modal #animation #close {

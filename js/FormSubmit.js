@@ -2,26 +2,6 @@ $(document).ready(function(){
     var modal = document.querySelector(".submit_modal");
     var loading = document.querySelector(".loading");
     var zh = $("#zh");
-    
-    //用來關閉modal的按鈕
-    var closeBtn = '<button id="close" type="button">確定</button>';
-
-    var closeBtn_eng = '<button id="close" class="close_eng" type="button">Confirm</button>';
-
-    //傳送成功時顯示的樣式
-    var success = '<i class="fas fa-check" style="font-size: 3rem; color: green; margin-left: 30%"></i><h3 class="loading">上傳成功!</h3>';
-
-    var success_eng = '<i class="fas fa-check" style="font-size: 3rem; color: green; margin-left: 38%"></i><h3 class="loading">Upload successful!</h3>';
-
-    //傳送失敗時顯示的樣式
-    var failed = '<i class="fas fa-times" style="font-size: 3rem; color: red; margin-left: 35%"></i><h3 class="loading">上傳失敗!</h3>';
-    
-    var failed_eng = '<i class="fas fa-times" style="font-size: 3rem; color: red; margin-left: 40%"></i><h3 class="loading">Upload failed!</h3>';
-
-    //關閉modal後回到初始的樣子
-    var recover = '<div class="outterCircle"><div class="innerCircle"></div></div><h3 class="loading">上傳中...</h3>';
-
-    var recover_eng = '<div class="outterCircle"><div class="innerCircle"></div></div><h3 class="loading">Uploading...</h3>';
 
     
     function validateEmail(email){
@@ -33,25 +13,21 @@ $(document).ready(function(){
         const email = $("#email").val();
         let valid = document.getElementById("valid");
 
-        if(validateEmail(email)){
-            if(zh.is(".active")){
-                valid.innerHTML = email + "是有效的地址";
-                valid.style['color'] = 'green';
-            }else{
-                valid.innerHTML = email + " is an email.";
-                valid.style['color'] = 'green';
-            }
-            
+        if(email.length < 1){ //空白的情況
+            valid.innerHTML = `${(zh.is(".active"))? '此為避填欄位' : 'This field is require.'}`
+            valid.style['color'] = 'red';
         }else{
-            if(zh.is(".active")){
-                valid.innerHTML = email + "為無效的地址";
-                valid.style['color'] = 'red';
+            if(validateEmail(email)){
+                valid.innerHTML = `${email}${(zh.is(".active"))? '是有效的地址' : ' is an email.'}`;
+
+                valid.style['color'] = 'green';
+                
             }else{
-                valid.innerHTML = email + " is not an email.";
+                valid.innerHTML = `${email}${(zh.is(".active"))? '為無效的地址' : ' is not an email.'}`;
+
                 valid.style['color'] = 'red';
-            }
+            }            
         }
-        return false;
     }
 
     $("#email").change(validate);
@@ -88,16 +64,15 @@ $(document).ready(function(){
         if($.trim($("#name").val()) === "" || $.trim($("#email").val()) === "" || $.trim($("#phone").val()) === ""){
             if(zh.is(".active")){
                 alert('請確實填寫表單');//檢查必填欄位是否空格
-                return false;
             }else{
-                alert('Please fill the require box.');
-                return false;
+                alert('Please fill the require field.');
             }
+            return false;
             
         }else{
             modal.classList.add("fadeIN");
             modal.style['display'] = 'block';
-
+            document.body.style.overflowY = 'hidden' // modal開啟時固定畫面
             $.ajax({
                 type: 'post',
                 url: './php/process.php',
@@ -106,44 +81,37 @@ $(document).ready(function(){
                 cache: false,
                 processData: false,
                 success: function(data){
-                    console.log(data);
-
-                    if(zh.is(".active")){
-                        $("#animation").html(success);
-                        $("#animation").append(closeBtn);
-                    }else{
-                        $("#animation").html(success_eng);
-                        $("#animation").append(closeBtn_eng);
-                        closeBtn.attr("margin-left", "34%");
-                    }
-                    loading.classList.add("popUP");
-                    $("#theForm")[0].reset();
+                    // console.log(data);
+                    generateModalContent('success')
                 },
                 error: function(){
-
-                    if(zh.is(".active")){
-                        $("#animation").html(failed);
-                        $("#animation").append(closeBtn);
-                    }else{
-                        $("#animation").html(failed_eng);
-                        $("#animation").append(closeBtn_eng);
-                    }
-                    loading.classList.add("popUP");
-                    $("#theForm")[0].reset();
+                    generateModalContent('failed')
                 }
             });
         }
 
         $("#animation").on("click", "#close", function(){
             modal.style['display'] = 'none';
-
-            if(zh.is(".active")){
-                $("#animation").html(recover);
-            }else{
-                $("#animation").html(recover_eng);
-            }
-            
+            document.body.style.overflowY = 'scroll'
+            $("#animation").html( //關閉modal後回到初始的樣子
+                `<div class="outterCircle"><div class="innerCircle"></div></div><h3 class="loading">${(zh.is(".active"))? '上傳中...' : 'Uploading...'}</h3>`
+            ); 
         })
 
     });
+
+    function generateModalContent(result){ //傳送成功或失敗時顯示的樣式
+        $("#animation").html( 
+            `<i class="fas ${(result == 'success')? 'fa-check' : 'fa-times'}" style="font-size: 3rem; color: ${(result == 'success')? 'green' : 'red'}; text-align: center"></i><h3 class="loading">
+            ${(result == 'success')? (zh.is(".active"))? '上傳成功!' : 'Upload successful!' :
+            (zh.is(".active"))? '上傳失敗!' : 'Upload failed!' }</h3>`
+        );
+
+        $("#animation").append( //用來關閉modal的按鈕
+            `<button id="close" type="button">${(zh.is(".active"))? '確定' : 'Confirm'}</button>`
+        );
+        
+        loading.classList.add("popUP");
+        $("#theForm")[0].reset();        
+    }
 });

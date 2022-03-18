@@ -32,8 +32,6 @@ window.onload = function(){
     //Form
     var form = document.getElementById("theForm");
     var Flabel = form.querySelectorAll("label")
-    var eng = $("#eng");
-    console.log(trM);
 
 
 
@@ -47,7 +45,7 @@ window.onload = function(){
             service: ["互助合作", "時間掌控", "多樣變化"],
             serDiscr: ["縮短想像與現實的距離，尋求雙方滿意的成品。", "不開天窗是接案人的職責，定期與委託人確認進度。", "簡單留白，賽璐璐或是油彩厚塗? 風格是可以切換的。"],
             AboutMe: ["半路覺醒成為獸控的阿宅，以畫筆表達對作品的喜好。曾經瘋了五年的忍者龜，對風格的影響顯而易見。", "作品參考:", "聯絡方式:"],
-            WorkFlows:["委託流程", "1.請聲明委託用途", "請以私訊或電子信件聯絡。 基本可用於個人收藏。", "上傳插畫至個人部落格(FB、Twiiter)請標註繪師名稱。", "尺寸預設為A4，300dpi。 若有其他尺寸需求請事先告知。", "繪師接受原創、二創和獸人或NSFW...等題材，但不接受血腥、過激的元素。 請提供參考圖或是內容描述(越詳盡越好)。", "2.付款相關", "作品最多可提出3次修改，超過視情況加收費用。", "委託金可以分兩次或一次付清。兩次分為草稿確認與完稿確認。 台灣國內請匯至指定銀行帳戶，海外委託請用Paypal付款。", "繪師有權將委託視為自己的作品之一，並發布於社群網站(如Pixix、Twitter)。 若不願公開請事先告知。", "一般公司商業委託，請另外來信詢價。"],
+            WorkFlows:["委託流程", "1.請聲明委託用途", "請以私訊或電子信件聯絡。 基本可用於個人收藏。", "上傳插畫至個人部落格(FB、Twitter)請標註繪師名稱。", "尺寸預設為A4，300dpi。 若有其他尺寸需求請事先告知。", "繪師接受原創、二創和獸人或NSFW...等題材，但不接受血腥、過激的元素。 請提供參考圖或是內容描述(越詳盡越好)。", "2.付款相關", "作品最多可提出3次修改，超過視情況加收費用。", "委託金可以分兩次或一次付清。兩次分為草稿確認與完稿確認。 台灣國內請匯至指定銀行帳戶，海外委託請用Paypal付款。", "繪師有權將委託視為自己的作品之一，並發布於社群網站(如Pixix、Twitter)。 若不願公開請事先告知。", "一般公司商業委託，請另外來信詢價。"],
             table:["參考", "未列出格式不代表無法接受，可與繪師討論", "線搞", "賽璐璐", "油彩厚塗", "NT 300", "NT 1000", "NT 1700", "追加人物 NT 500(一個角色)", "加背景 NT 500~900(依複雜程度而定)", "委託約於一周內完成，繪師會與你保持聯絡追蹤進度"],
             Form:["*姓名: ", "電話: ", "*Email: ", "角色設計", "個人委託", "大頭貼", "書籍封面", "其他", "參考附件", "*可多選", "*詳細說明："]
         },
@@ -118,7 +116,7 @@ window.onload = function(){
                 Flabel[i].innerHTML = languages[attr].Form[i];
             }
             
-            form.querySelector(".text-right").innerHTML = ' <input type="button" class="btn btn-secondary" value="Cancel"><input type="submit" class="btn btn-primary submitBtn" name="submit" value="Submit" style="margin-left: 2%;">';
+            form.querySelector(".text-right").innerHTML = `<input type="button" class="btn btn-secondary" value="${(attr == 'zh')? '取消' : 'Cancel'}"><input type="submit" class="btn btn-primary submitBtn" name="submit" value="${(attr == 'eng')? 'Submit' : '送出'}" style="margin-left: 2%;">`;
 
             //Table_mobile
             trM[0].innerHTML = '<td>'+ languages[attr].table[2] +'</td><td data-th="線搞"><p class="demo bg-cover" style="background-image: url(images/Commission_Demo-Lineart01.jpg);"></p></td><td>'+ languages[attr].table[5] +'</td>';
@@ -129,7 +127,7 @@ window.onload = function(){
 
             trM[3].innerHTML = ' <td>Notes</td><td><p>'+ languages[attr].table[8] +'</p><p>'+ languages[attr].table[9] +'</p><p>'+ languages[attr].table[10] +'</p></td>';
 
-            if(eng.is(".active")){
+            if(attr == 'eng'){
                 loading.innerHTML = "Uploading...";
             }else{
                 loading.innerHTML = "上傳中...";
