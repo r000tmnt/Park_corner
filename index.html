@@ -212,48 +212,45 @@
           <div id="reference" class="col-md-12" style="z-index: 1;">
             <h1 class="title">參考 <small style="font-size: large;">*未列出格式不代表無法接受，可與繪師討論</small></h1>
 
-              <!-- <div class="row">
-                <div class="col-md-4 col-sm-6">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">單色灰階</h5>
-                      <img class="demo" src="images/Ride_on_the_top.jpg" alt="">
-                      <p class="card-text">
-                        半身: NT 300
-                        全身: NT 450
-                      </p>
-                    </div>
-                  </div>                  
-                </div>
-                <div class="col-md-4 col-sm-6">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">全彩</h5>
-                      <img class="demo" src="images/Cook_too_much.jpg" alt="">
-                      <p class="card-text">
-                        半身: NT 500
-                        全身: NT 750
-                      </p>
-                    </div>
-                  </div>                  
+            <div class="card">
+              <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                  <li class="nav-item">
+                    <a data-style="monochrome" class="nav-link artStyle clickable active">單色灰階</a>
+                  </li>
+                  <li class="nav-item">
+                    <a data-style="fullColor" class="nav-link artStyle clickable">全彩</a>
+                  </li>
+                  <li class="nav-item">
+                    <a data-style="fullShading" class="nav-link artStyle clickable">仿厚塗</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body row">
+                <div class="preview col-md-6 col-sm-12">
+                    <img id="currentImage" class="clickable" src="" alt="">
+
+                  <div id="thumbnails" class="flex">
+                    <!-- 縮圖在這裡 -->
+                  </div>
                 </div>
 
-                <div class="col-md-4">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">仿厚塗</h5>
-                      <img class="demo" src="images/Ryekie_Rush_IN.jpg" alt="">
-                      <p class="card-text">
-                        半身: NT 1000
-                        全身: NT 1500
-                      </p>
-                    </div>
-                  </div>                  
-                </div>                
-              </div> -->
+                <div class="col-md-6 col-sm-12">
+                  價格: 
+                  <ul id="desc">
+                    <!-- 價格細分 -->
+                  </ul>
+                  <div class="noted">
+                    <p>追加人物 NT 300(一個角色)</p>
+                    <p>加背景 NT 300~500(依複雜程度而定)</p>
+                    <p>委託約於案件確認的7至10天完成，繪師會與你保持聯絡追蹤進度</p>                    
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
-              <table id="desktop" class="table desktop"> 
+              <!-- <table id="desktop" class="table desktop"> 
                 <thead>
                   <tr>
                     <th><h4>單色灰階</h4></th>
@@ -267,7 +264,7 @@
                       <img class="demo" src="images/Ride_on_the_top.jpg" alt="參考圖">
                     </td>
                     <td>
-                      <img class="demo" src="images/Ride_on_the_top.jpg" alt="參考圖">
+                      <img class="demo" src="images/Cook_too_much.jpg" alt="參考圖">
                     </td>
                     <td>
                       <img class="demo" src="images/Fundoshi_no_hi_2021.jpg" alt="參考圖">
@@ -288,10 +285,10 @@
                     </td>
                   </tr>
                 </tbody>
-              </table>
+              </table> -->
 
               <!--Table for mobile-->
-              <table id="mobile" class="table mobile"> 
+              <!-- <table id="mobile" class="table mobile"> 
                 <tbody>
                   <tr>
                     <td>單色灰階</td>
@@ -326,7 +323,7 @@
                     </td>
                   </tr>
                 </tbody>  
-              </table>
+              </table> -->
               
 
           </div>
@@ -473,5 +470,6 @@
     <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
     <script src="js/FormSubmit.js"></script>
     <script src="js/changeLanguage.js"></script>
+    <script src="js/changePreview.js"></script>
   </body>
 </html>

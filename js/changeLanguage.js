@@ -20,14 +20,14 @@ window.onload = function(){
     var pay = payment.querySelectorAll("li");
 
     //Table
-    var tableDesktop = document.getElementById("desktop");
-    var thD = tableDesktop.querySelectorAll("th");
-    var trD = tableDesktop.querySelectorAll("tr");
-    var price = trD[2].querySelectorAll("td");
-    var note = trD[3].querySelector("td").querySelectorAll("p");
-    var tableMobile = document.getElementById("mobile");
-    var trM = tableMobile.querySelectorAll("tr");
-    var refer = document.getElementById("reference");
+    // var tableDesktop = document.getElementById("desktop");
+    // var thD = tableDesktop.querySelectorAll("th");
+    // var trD = tableDesktop.querySelectorAll("tr");
+    // var price = trD[2].querySelectorAll("td");
+    // var note = trD[3].querySelector("td").querySelectorAll("p");
+    // var tableMobile = document.getElementById("mobile");
+    // var trM = tableMobile.querySelectorAll("tr");
+    // var refer = document.getElementById("reference");
 
     //Form
     var form = document.getElementById("theForm");
