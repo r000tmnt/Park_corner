@@ -1,3 +1,5 @@
+import languages from './language.js'
+
 window.onload = function(){
     var currentType = 'monochrome' //當前顯示的風格類型
     var artNav = document.querySelectorAll('.artStyle') //風格切換的按鈕
