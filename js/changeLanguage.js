@@ -55,7 +55,7 @@ window.onload = function(){
             about: "About me",
             catagory: "Catagories",
             types: ["Character design", "Personal commission", "Cover art", "Co-publishing"],
-            shortCaption: ["Help you perfect the image of your own character", "Shorten the distance between imagination and reality", "The sence of narrative at a glance", "Togither, we can make things better"],
+            shortCaption: ["Help you perfect the image of your own character", "Shorten the distance between imagination and reality", "The sence of narrative at a glance", "Together, we can make things better"],
             service: ["Mutual interest", "Time management", "Variaty of style"],
             serDiscr: ["Seek the produt that will satisfy both side.", "Freelance is duty to not meet the deadline, contact regularly.", "Simplify, cel-shading or oil paint-ish? The style is your choice."],
             AboutMe: ["A nerd and a furry, often express his thoughts with brushes. Used to be a fan of TMNT, the show has it's impact on the style.", "Works reference:", "Contact:"],
