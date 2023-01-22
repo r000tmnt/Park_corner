@@ -58,7 +58,7 @@ try{
   $mail->Host = 'smtp.gmail.com';
   $mail->SMTPAuth = true;
   $mail->Username = 'rick.t.ryahoocomtw653@gmail.com';
-  $mail->Password = 'ndowdvhtpormfptd';
+  $mail->Password = ''; // 不要公開任何密碼
   $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
   $mail->Port = 587;
 
