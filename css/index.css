@@ -1,35 +1,13 @@
 /*Break points for rwd*/
 /*animations*/
-@-webkit-keyframes loading {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
 @keyframes loading {
   from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
-
-@-webkit-keyframes fadeIN {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes fadeIN {
   from {
     opacity: 0;
@@ -38,16 +16,6 @@
     opacity: 1;
   }
 }
-
-@-webkit-keyframes fadeOUT {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 @keyframes fadeOUT {
   from {
     opacity: 1;
@@ -56,16 +24,6 @@
     opacity: 0;
   }
 }
-
-@-webkit-keyframes popUP {
-  from {
-    font-size: 1rem;
-  }
-  to {
-    font-size: 2rem;
-  }
-}
-
 @keyframes popUP {
   from {
     font-size: 1rem;
@@ -74,144 +32,110 @@
     font-size: 2rem;
   }
 }
-
 .fadeIN {
-  -webkit-animation: fadeIN 1s ease-in forwards;
-          animation: fadeIN 1s ease-in forwards;
+  animation: fadeIN 1s ease-in forwards;
 }
 
 .fadeOUT {
-  -webkit-animation: fadeOUT 1s ease-in forwards;
-          animation: fadeOUT 1s ease-in forwards;
+  animation: fadeOUT 1s ease-in forwards;
 }
 
 .popUP {
-  -webkit-animation: popUP 1s ease-in-out forwards;
-          animation: popUP 1s ease-in-out forwards;
+  animation: popUP 1s ease-in-out forwards;
 }
 
 /*Default style*/
 body {
+  scroll-behavior: smooth;
   background-color: #f8f9fa !important;
 }
-
 body .lang {
   float: right;
   margin-top: 2vh;
 }
-
 body .lang:focus {
   outline: none;
 }
-
 body .lang .active {
   border-radius: 10px;
   background-color: steelblue;
   color: white;
   padding: 3px;
 }
-
 body .lang a {
   margin-left: 0.3vw;
 }
-
 body .lang a:hover {
   color: white;
 }
-
 body .bg-cover {
   height: 50vh;
   background-position: center;
   background-size: cover;
 }
-
 body .carousel-caption {
   background-color: rgba(34, 34, 34, 0.5);
 }
-
 body .row {
   margin-right: 0;
 }
-
 body .row .logo img:hover {
-  -webkit-filter: brightness(0);
-          filter: brightness(0);
-  -webkit-transition: 0.5s;
+  filter: brightness(0);
   transition: 0.5s;
 }
-
 body .row .demo {
   height: 33vh;
 }
-
 body .row .desktop {
   margin-bottom: 5vh;
   background-color: white;
 }
-
 body .row .mobile {
   display: none;
 }
-
 body .row tr, body .row th, body .row td {
   border: 1px solid lightgray;
 }
-
 body .row #detail {
   resize: none;
   width: 100%;
   height: 20vh;
 }
-
 body .row .submit_modal {
   width: 100vw;
   z-index: 3;
   /* background-color: rgba(34, 34, 34, 0.75); */
 }
-
 body .row .submit_modal #animation {
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   position: absolute;
   /* border: 1px solid blue; */
   border-radius: 50px;
   padding: 1% 2%;
   background-color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  justify-content: center;
 }
-
 body .row .submit_modal #animation .outterCircle {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   background-color: steelblue;
-  -webkit-animation: loading 1s linear infinite;
-          animation: loading 1s linear infinite;
+  animation: loading 1s linear infinite;
   margin: 0 auto;
 }
-
 body .row .submit_modal #animation .outterCircle .innerCircle {
   width: 190px;
   height: 190px;
   border-radius: 50%;
   background-color: white;
 }
-
 body .row .submit_modal #animation .loading {
   text-align: center;
 }
-
 body .row .submit_modal #animation #close {
   border-radius: 50px;
   border: 1px solid steelblue;
@@ -219,59 +143,40 @@ body .row .submit_modal #animation #close {
   cursor: pointer;
   padding-bottom: 1%;
 }
-
 body .row .submit_modal #animation #close:hover {
   background-color: rgba(34, 34, 34, 0.9);
   color: white;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-
 body #Short_info {
   background-color: steelblue;
   color: white;
 }
-
 body #Short_info .explain {
   text-align: center;
 }
-
 body #Short_info .explain:hover {
   background-color: #222;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-
 body footer {
   color: white;
 }
-
 body footer .outterLinks {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
-
 body footer .outterLinks .link {
   margin: 1vh 0.5vw;
 }
-
 body footer .outterLinks .link img {
   width: 50px;
-  -webkit-filter: contrast(50%);
-          filter: contrast(50%);
+  filter: contrast(50%);
 }
-
 body footer .outterLinks .link img:hover {
-  -webkit-filter: none;
-          filter: none;
-  -webkit-transition: 0.5s;
+  filter: none;
   transition: 0.5s;
 }
-
 @media (max-width: 768px) {
   body #Commission_Detail {
     margin-top: 7vh;
@@ -288,8 +193,7 @@ body footer .outterLinks .link img:hover {
   body .refer:hover {
     color: whitesmoke;
     background-color: rgba(34, 34, 34, 0.7);
-    -webkit-transition: .5s;
-    transition: .5s;
+    transition: 0.5s;
   }
   body .demo {
     height: 43vh !important;
@@ -317,7 +221,6 @@ body footer .outterLinks .link img:hover {
     margin-top: -50vh;
   }
 }
-
 @media (max-width: 576px) {
   body .submit_modal {
     margin-right: 60% !important;
@@ -336,7 +239,6 @@ body footer .outterLinks .link img:hover {
     margin-right: 2vw !important;
   }
 }
-
 @media (max-width: 480px) {
   body #Commission_Detail {
     margin-top: 10vh;
@@ -347,5 +249,4 @@ body footer .outterLinks .link img:hover {
   body .link {
     margin-right: 4vw !important;
   }
-}
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */

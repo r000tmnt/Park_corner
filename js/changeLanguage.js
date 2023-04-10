@@ -41,7 +41,7 @@ window.onload = function(){
     var languages = {
         zh: {
             about: "關於我",
-            catagory: "委託類別",
+            contact: "聯絡我",
             types: ["角色設計", "個人委託", "封面繪製", "合作出版"],
             shortCaption: ["幫助你完善自創的角色形象", "縮短您心中的想像與現實的距離", "一眼感受到畫面的敘事性", "集合眾人的力量"],
             service: ["互助合作", "時間掌控", "多樣變化"],
@@ -53,7 +53,7 @@ window.onload = function(){
         },
         eng: {
             about: "About me",
-            catagory: "Catagories",
+            contact: "Contact me",
             types: ["Character design", "Personal commission", "Cover art", "Co-publishing"],
             shortCaption: ["Help you perfect the image of your own character", "Shorten the distance between imagination and reality", "The sence of narrative at a glance", "Together, we can make things better"],
             service: ["Mutual interest", "Time management", "Variaty of style"],
@@ -89,7 +89,7 @@ window.onload = function(){
             refer.querySelector("h1").innerHTML = languages[attr].table[0];
             refer.querySelector("p").innerHTML = languages[attr].table[1];
             
-            dropDown.innerHTML = languages[attr].catagory;      
+            dropDown.innerHTML = languages[attr].contact;      
 
             for(let i=0; i< flow.length; i++){
                flow[i].innerHTML = languages[attr].WorkFlows[i+2];

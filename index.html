@@ -11,50 +11,18 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="icon" href="images/ParkCorner_icon.png">
 
+    <!-- Vue3 CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
     <title>公園一角/Park Corner</title>
   </head>
   <body>
 
-    <!--NavBar-->
-    <section class="bg-dark">
-      <div class="container">
+    <div id="app">
 
-        <div class="lang">
-          <a href="#zh" id="zh" language="zh" class="changeLan active">中文</a>
-          <a href="#eng" id="eng" class="changeLan" language="eng">English</a>
-        </div>
+      <Navbar :lang="lang" />
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand logo" href="#">
-            <img width="100px" src="images/ParkCorner_logo_white.png" alt="Not found">
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" id="about" href="#self">關於我</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  委託類別
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">角色設計</a>
-                  <a class="dropdown-item" href="#">個人委託</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">封面繪製</a>
-                  <a class="dropdown-item" href="#">合作出版</a>
-                </div>
-              </li>
-              
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </section>
+    </div>
 
 
     <!--Privious Works-->
@@ -155,7 +123,7 @@
                   <p><a class="refer" href="https://www.pixiv.net/users/3093390">Pixiv</a></p>
                   <p><a class="refer" href="https://www.furaffinity.net/user/r000tmnt/">Fur Affinity</a></p>
                 </div>
-                <div class="col-md-6" id="contact">
+                <div class="col-md-6">
                   <h4>聯絡方式: </h4>
                   <p>Email: <a class="refer" href="mailTo:rick.t.ryahoocomtw653@gmail.com">rick.t.ryahoocomtw653@gmail.com</a></p>
                 </div>
@@ -282,7 +250,7 @@
     </section>
 
     <!--Form-->
-    <section style="position: relative; margin-bottom: 3vh;">
+    <section id="contact" style="position: relative; margin-bottom: 3vh;">
       <div class="container">
         <div class="row">
 
@@ -415,5 +383,25 @@
     <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
     <script src="js/FormSubmit.js"></script>
     <script src="js/changeLanguage.js"></script>
+
+    <script type="module">
+      const { createApp } = Vue;
+      import Navbar from './component/navbar.js'
+
+      const app = createApp({
+        data() {
+          return {
+            lang: 'zh'
+          }
+        },
+        component: {
+          Navbar
+        },
+      })
+
+      app.component('Navbar', Navbar)
+
+      app.mount('#app')
+    </script>
   </body>
 </html>
