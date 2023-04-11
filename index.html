@@ -20,360 +20,23 @@
 
     <div id="app">
 
-      <Navbar :lang="lang" />
+      <Navbar :lang="lang"></Navbar>
+
+      <Carousel :lang="lang"></Carousel>
+
+      <Services :lang="lang"></Services>
+
+      <Self-Introduction :lang="lang"></Self-Introduction>
+
+      <Commission-Detail :lang="lang"></Commission-Detail>
+
+      <Style-References :lang="lang"></Style-References>
+
+      <Contact-Form :lang="lang"></Contact-Form>
+
+      <Footer-Compoment></Footer-Compoment>
 
     </div>
-
-
-    <!--Privious Works-->
-    <section>
-      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-          
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="Previous_works bg-cover" style="background-image: url('images/Garant_the_dragon_monk_character_sheet.jpg');"></div>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>角色設計</h5>
-              <p>幫助你完善自創的角色形象</p>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="Previous_works bg-cover" style="background-image: url('images/Yourpage_banner.jpg');"></div>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>個人委託</h5>
-              <p>縮短您心中的想像與現實的距離</p>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="Previous_works bg-cover" style="background-image: url('images/2020.jpg');"></div>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>封面設計</h5>
-              <p>一眼感受到畫面的敘事性</p>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="Previous_works bg-cover" style="background-image: url('images/Grant_blacki_deepred_dragon.jpg');"></div>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>合作出版</h5>
-              <p>集合眾人的力量</p>
-            </div>
-          </div>
-
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </section>
-
-    <!--Services-->
-    <section id="Short_info">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-4 py-3 explain">
-            <i class="fas fa-handshake fa-6x text-white py-2"></i>
-            <h5>互助合作</h5>
-            <p>縮短想像與現實的距離，尋求雙方滿意的成品。</p>
-          </div>
-          <div class="col-sm-12 col-md-4 py-3 explain">
-            <i class="fas fa-user-clock fa-6x text-white py-2"></i>
-            <h5>時間掌控</h5>
-            <p>不開天窗是接案人的職責，定期與委託人確認進度。</p>
-          </div>
-          <div class="col-sm-12 col-md-4 py-3 explain">
-            <i class="fas fa-palette fa-6x text-white py-2"></i>
-            <h5>多樣變化</h5>
-            <p>簡單留白，賽璐璐或是油彩厚塗? 風格是可以切換的。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--Who am I?-->
-    <section class="bg-white" style="position: relative; height: 33vh;" id="self">
-
-        <div class="row row-mobile">
-            <div class="col-md-5 demo bg-cover" style="background-image: url('images/vadim-sherbakov-Hi9GSwWkCJk-unsplash.jpg'); position: absolute; top:0; bottom:0;"></div>
-        </div>
-
-        <div class="container">
-          <div class="row justify-content-end">
-            <div class="col-md-7 py-3 text" id="aboutMe">
-              <h3 class="mt-3">關於我</h3>
-              <p>半路覺醒成為獸控的阿宅，以畫筆表達對作品的喜好。曾經瘋了五年的忍者龜，對風格的影響顯而易見。
-              </p>
-
-              <div class="row mt-3 text">
-                <div class="col-md-6" id="whoamI">
-                  <h4>作品參考:</h4>
-                  <p><a class="refer" href="https://www.pixiv.net/users/3093390">Pixiv</a></p>
-                  <p><a class="refer" href="https://www.furaffinity.net/user/r000tmnt/">Fur Affinity</a></p>
-                </div>
-                <div class="col-md-6">
-                  <h4>聯絡方式: </h4>
-                  <p>Email: <a class="refer" href="mailTo:rick.t.ryahoocomtw653@gmail.com">rick.t.ryahoocomtw653@gmail.com</a></p>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-
-    </section>
-
-    <!--Commission Detail-->
-    <section class="py-5" id="Commission_Detail">
-      <div class="container">
-        <h1 id="workFlow" class="text-center">委託流程</h1>
-        <div class="row">
-          <div class="col-md-6">
-            <div id="statePurpose" class="d-flex">
-              <i class="fas fa-list-alt fa-4x text-success"></i>
-              <ul>
-                <h4>1.請聲明委託用途</h4>
-                <li>請以私訊或電子信件聯絡。 基本可用於個人收藏。</li>
-                <li>上傳插畫至個人部落格(FB、Twiiter)請標註繪師名稱。</li>
-                <li>尺寸預設為A4，300dpi。 若有其他尺寸需求請事先告知。</li>
-                <li>繪師接受原創、二創和獸人或NSFW...等題材，但不接受血腥、過激的元素。 請提供參考圖或是內容描述(越詳盡越好)。</li>
-              </ul>
-            </div>
-
-          </div>
-          <div class="col-md-6">
-            <div id="payment" class="d-flex">
-              <i class="fas fa-donate fa-4x text-success"></i>
-            <ul>
-              <h4>2.付款相關</h4>
-              <li>作品最多可提出3次修改，超過視情況加收費用。</li>
-              <li>委託金可以分兩次或一次付清。兩次分為草稿確認與完稿確認。 台灣國內請匯至指定銀行帳戶，海外委託請用Paypal付款。</li>
-              <li>繪師有權將委託視為自己的作品之一，並發布於社群網站(如Pixix、Twitter)。 若不願公開請事先告知。</li>
-              <li>一般公司商業委託，請另外來信詢價。</li>
-            </ul>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--Other-->
-    <section style="position: relative;">
-      <div class="container">
-        <div class="row">
-          <div id="reference" class="col-md-12" style="z-index: 1;">
-            <h1>參考</h1>
-              <p>*未列出格式不代表無法接受，可與繪師討論</p>
-
-              <table id="desktop" class="table desktop"> 
-                <thead>
-                  <tr>
-                    <th><h4>線搞</h4></th>
-                    <th><h4>賽璐璐</h4></th>
-                    <th><h4>油彩厚塗</h4></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><p class="demo bg-cover" style="background-image: url('images/Commission_Demo-Lineart01.jpg');"></p></td>
-                    <td><p class="demo bg-cover" style="background-image: url('images/Commission_Demo-celShading.jpg');"></p></td>
-                    <td><p class="demo bg-cover" style="background-image: url('images/Commission_Demo-FullShading.jpg');"></p></td>
-                  </tr>
-
-                  <tr>
-                    <td>NT 300</td>
-                    <td>NT 1000</td>
-                    <td>NT 1700</td>
-                  </tr>  
-                  
-                  <tr>
-                    <td colspan="3">
-                      <p>追加人物 NT 500(一個角色)</p>
-                      <p>加背景 NT 500~900(依複雜程度而定)</p>
-                      <p>委託約於一周內完成，繪師會與你保持聯絡追蹤進度</p>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-
-              <!--Table for mobile-->
-              <table id="mobile" class="table mobile"> 
-                <tbody>
-                  <tr>
-                    <td>線搞</td>
-                    <td data-th="線搞"><p class="demo bg-cover" style="background-image: url('images/Commission_Demo-Lineart01.jpg');"></p></td>
-                    <td>NT 300</td>
-                  </tr>
-
-                  <tr>
-                    <td>賽璐璐</td>
-                    <td data-th="賽璐璐"><p class="demo bg-cover" style="background-image: url('images/Commission_Demo-celShading.jpg');"></p></td>
-                    <td>NT 1000</td>
-                  </tr>  
-                  
-                  <tr>
-                    <td>油彩厚塗</td>
-                    <td data-th="油彩厚塗"><p class="demo bg-cover" style="background-image: url('images/Commission_Demo-FullShading.jpg');"></p></td>
-                    <td>NT 1500</td>
-                  </tr>
-                  
-                  <tr>
-                    <td>以上備註</td>
-                    <td>
-                      <p>追加人物 NT 500(一個角色)</p>
-                      <p>加背景 NT 500~900(依複雜程度而定)</p>
-                      <p>委託約於一周內完成，繪師會與你保持聯絡追蹤進度</p>
-                    </td>
-                  </tr>
-                </tbody>  
-              </table>
-              
-
-          </div>
-        </div>
-      </div>
-
-
-    </section>
-
-    <!--Form-->
-    <section id="contact" style="position: relative; margin-bottom: 3vh;">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-md-4">
-            <form id="theForm" enctype="multipart/form-data">
-              <div class="form-group">
-                <label for="">*姓名: </label>
-                <input type="text" id="name" name="name" class="form-control">
-              </div>
-  
-              <div class="form-group">
-                <label for="">電話: </label>
-                <input type="text" id="phone" name="phone" class="form-control">
-              </div>
-  
-              <div class="form-group">
-                <label for="">*Email: </label>
-                <input type="email" id="email" name="email" class="form-control">
-                <p id="valid"></p>
-              </div>
-  
-              <div class="form-check">
-                <input type="checkbox" id="OC" name="checkbox[]" class="form-check-input Checkbox" value="OC" checked>
-                <label>角色設計</label>
-              </div>
-
-              <div class="form-check">
-                <input type="checkbox" id="personal" name="checkbox[]" class="form-check-input Checkbox" value="personal">
-                <label>個人委託</label>
-              </div>
-  
-              <div class="form-check">
-                <input type="checkbox" id="profile" name="checkbox[]" class="form-check-input Checkbox" value="profile">
-                <label>大頭貼</label>
-              </div>
-              
-              <div class="form-check">
-                <input type="checkbox" id="cover" name="checkbox[]" class="form-check-input Checkbox" value="cover">
-                <label>書籍封面</label>
-              </div>
-
-              <div class="form-check">
-                <input type="checkbox" id="other" name="checkbox[]" class="form-check-input Checkbox" value="other">
-                <label>其他</label>
-              </div>
-
-              <div class="form-check">
-                <label>參考附件</label>
-                <label>*可多選</label>
-                <input type="file" name="files[]" id="file" multiple>
-              </div>
-              <br>
-              <div class="form-group">
-                <label for="detail">*詳細說明：</label>
-                <textarea id="detail" name="detail"></textarea>
-              </div>
-  
-              <div class="text-right">
-                <input type="button" class="btn btn-secondary" value="取消">
-                <input type="submit" class="btn btn-primary submitBtn" name="submit" value="確認">
-              </div>
-            </form> 
-          </div>
-
-          <!--loading animation-->
-      <div class="row">
-        <div class="submit_modal" style="display: none;">
-          <div id="animation">
-              <div class="outterCircle">
-                  <div class="innerCircle"></div>
-                </div>
-                <h3 class="loading">上傳中...</h3>
-          </div>
-        </div>
-      </div> 
-          
-        </div>
-      </div>
-
-      <div class="row form-decoration justify-content-end">
-        <div id="Pic" class="col-md-7 bg-cover" style="background-image: url('images/makson-serpa-7KAInrNdG0U-unsplash.jpg'); top:0; bottom:0; position: absolute; height: 80vh"></div>
-      </div>
-    </section>
-
-    <!--recruit 目前僅一人作業，若未來有需求再開啟-->
-    <!-- <section class="bg-light py-5">
-        <div class="row form-decoration">
-          <div class="col-md-6 bg-cover" style="background-image: url('images/krisztian-tabori-IyaNci0CyRk-unsplash.jpg'); position: relative;">
-          <div class="text-center recruit p-2" style="position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);">
-              <h1>誠徵編劇</h1>
-              <p>職務需求: 習慣性大量閱讀漫畫、動畫等...作品，能幫忙繪製分鏡。</p>
-          </div>
-        </div>
-
-          <div class="col-md-6 bg-cover" style="background-image: url('images/laura-boccola-If19jUZwxvg-unsplash.jpg'); position: relative;">
-            <div class="text-center recruit p-2"  style="position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);">
-              <h1>誠徵繪師</h1>
-              <p>職務需求: 擅長使用Clip-studio、Paint tool SAI或 Photoshop 和 illustrator。 具手繪能力者尤佳。</p>
-            </div>
-          </div>
-
-        </div>
-    </section> -->
-
-    <footer class="bg-dark">
-      <div class="container">
-        <div class="outterLinks">
-          <a class="link" href="https://www.pixiv.net/users/3093390">
-            <img src="images/pixiv_icon.ico" alt="Not found"></a>
-          
-            <a class="link" href="https://www.furaffinity.net/user/r000tmnt/">
-              <img src="images/fa_logo.png" alt="Not found">
-            </a>
-
-            <a class="link" href="https://twitter.com/r000tmnt">
-              <img src="images/twitter_icon.png" alt="Not found">
-            </a>
-          
-        </div>
-
-          <div class="text-center py-3">Park Corner &copy;Copyright 2020</div>
-      </div>
-    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -387,6 +50,13 @@
     <script type="module">
       const { createApp } = Vue;
       import Navbar from './component/navbar.js'
+      import Carousel from './component/carousel.js'
+      import Services from './component/services.js'
+      import SelfIntroduction from './component/selfIntroduction.js'
+      import CommissionDetail from './component/commissionDetail.js'
+      import StyleReferences from './component/styleReferences.js'
+      import ContactForm from './component/contactForm.js'
+      import FooterCompoment from './component/footer.js'
 
       const app = createApp({
         data() {
@@ -394,12 +64,17 @@
             lang: 'zh'
           }
         },
-        component: {
-          Navbar
+        components: {
+          Navbar,
+          Carousel,
+          Services,
+          SelfIntroduction,
+          CommissionDetail,
+          StyleReferences,
+          ContactForm,
+          FooterCompoment
         },
       })
-
-      app.component('Navbar', Navbar)
 
       app.mount('#app')
     </script>
