@@ -22,7 +22,7 @@
 
     <div id="app">
 
-      <Navbar :lang="lang"></Navbar>
+      <Navbar :lang="lang" :t="t" @change-lang="changeLocale"></Navbar>
 
       <Carousel :lang="lang"></Carousel>
 
@@ -63,9 +63,12 @@
       import FooterCompoment from './component/footer.js'
 
       const i18n = createI18n({
+        allowComposition: true,
         locale: 'zh_TW',
-        message: language
+        fallbackLocale: 'zh_TW',
+        messages: language
       })
+
 
       const app = createApp({
         components: {
@@ -79,10 +82,18 @@
           FooterCompoment
         },        
         setup(){
-          const lang = ref('ZH_TW')
+          const { t, locale } = i18n.global
+          const lang = ref(locale)
+    
+          const changeLocale = (v) => {
+            console.log(v)
+            locale = v
+          }
 
           return {
-            lang
+            t,
+            lang,
+            changeLocale
           }
         }
       })

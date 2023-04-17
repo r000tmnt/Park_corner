@@ -1,6 +1,8 @@
     // Language translations
     const languages = {
-        zh_tw: {
+        zh_TW: {
+            zh_tw: "中文",
+            eng: "English",
             about: "關於我",
             contact: "聯絡我",
             types: "角色設計 | 個人委託 | 封面繪製 |合作出版",
@@ -31,6 +33,8 @@
             form_field_desc: "詳細說明：",
         },
         eng: {
+            zh_tw: "Chinese",
+            eng: "English",
             about: "About me",
             contact: "Contact me",
             types: "Character design | Personal commission | Cover art | Co-publishing",
@@ -44,8 +48,6 @@
             workFlow_title: "1.State the purpose of the commission | 2.Payment",
             workFlow_desc_1: "Please send the request by direct message or email. Basically, the commission work can be use for personal collection.。 | Please tag the artist when you post the illustration on social media(FB, TWITTER...etc). | The default size is A4 with 300dpi. Please state the number in cm or pixel if it is not A4. | The artist accepts original ideas, deriviative work and furry. Themes with NSFW can be discuss, but not include gore. Please provide with references when ask for commission.",
             workFlow_desc_2: "The commission can be altered up to 3 times(Position, pose...etc). Extra fee will be charged if you wish to do more changes, the price depends on the complexity. | The commission can be paid in full or split in two. Two means when the rough is confirm and when the work is complete. Accept paypal for oversea client. | The artist will post the work on the social media. Please notify the artist if you don't want it open to public. | For commercial cases, please make inquires with e-mail.",
-            // table:["References", "*Formats not listed here can be discuss", "Line art", "Cel-shading", "Full-shading", "10 USD", "35 USD", "60 USD", "17 USD for additional character. (per character)", "17 ~ 31 USD for additional background. (depends on complexity)", "The commission is set to be finished in one week, the artist will contact the client to check on the porgress."],
-            // Form:["*Name: ", "TEL: ", "*Email: ", "Character design", "Personal commission", "Profile pic", "Cover art", "Others", "Attachment", "*Multi-select", "*Description："]
             reference: "References",
             reference_note: "*Formats not listed here can be discuss",
             reference_styles: "Grayscale | Cel-shading | Full-shading",

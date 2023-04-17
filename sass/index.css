@@ -55,9 +55,8 @@ body .lang {
 body .lang:focus {
   outline: none;
 }
-body .lang .active {
+body .lang .current_lang {
   color: steelblue;
-  background-color: none;
 }
 body .lang a {
   margin-left: 0.3vw;

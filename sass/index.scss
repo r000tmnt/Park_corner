@@ -57,21 +57,14 @@ body{
 
     .lang{
         float: right;
-        margin-top: 2vh;
         &:focus{
             outline: none;
         }
-        .active{
-            border-radius: 10px;
-            background-color: steelblue;
-            color: white;
-            padding: 3px;
+        .current_lang{
+            color: steelblue;
         }
         a{ 
             margin-left: 0.3vw;
-            &:hover{
-                color: white;
-            }
         }
         
     }
