@@ -1,12 +1,12 @@
 const styleReferences = {
-    props: ['lang'],
     template: `
     <section style="position: relative;">
         <div class="container">
             <div class="row">
                 <div id="reference" class="col-md-12" style="z-index: 1;">
-                    <h1>參考</h1>
-                    <p>*未列出格式不代表無法接受，可與繪師討論</p>
+                    <h1 class="section_title mb-4">參考
+                        <span style="font-size: 1rem">*未列出格式不代表無法接受，可與繪師討論</span>
+                    </h1>
 
                     <table id="desktop" class="table desktop"> 
                         <thead>
@@ -71,16 +71,17 @@ const styleReferences = {
                                 </td>
                                 <td>NT 1500</td>
                             </tr>
-                            
+                        </tbody>  
+                        
+                        <tfoot>
                             <tr>
-                                <td>以上備註</td>
-                                <td>
+                                <td colspan="3">
                                     <p>追加人物 NT 500(一個角色)</p>
                                     <p>加背景 NT 500~900(依複雜程度而定)</p>
                                     <p>委託約於一周內完成，繪師會與你保持聯絡追蹤進度</p>
                                 </td>
                             </tr>
-                        </tbody>  
+                        </tfoot>
                     </table>
                     
                 </div>
@@ -88,10 +89,21 @@ const styleReferences = {
         </div>
 
     </section>
-    `,
-    created(){
-        console.log(this.$props)
-    }
+    `,    
+    props: ['lang'],
+    setup(props) {
+        console.log(props)
+        
+        const reference_styles_images = [
+            'images/Commission_Demo-Lineart01.jpg',
+            'images/Commission_Demo-celShading.jpg',
+            'images/Commission_Demo-FullShading.jpg'
+
+        ]
+        return {
+            reference_styles_images
+        }
+    }    
 }
 
 export default styleReferences;

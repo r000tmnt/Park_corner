@@ -1,9 +1,8 @@
 const commissionDetail = {
-    props: ['lang'],
     template: `
     <section class="py-5" id="Commission_Detail">
         <div class="container">
-            <h1 id="workFlow" class="text-center">委託流程</h1>
+            <h1 class="section_title mb-4">委託流程</h1>
             <div class="row">
                 <div class="col-md-6">
                     <div id="statePurpose" class="d-flex">
@@ -34,9 +33,10 @@ const commissionDetail = {
             </div>
         </div>
     </section>
-    `,
-    created(){
-        console.log(this.$props)
+    `,    
+    props: ['lang'],
+    setup(props) {
+        console.log(props)
     }
 }
 

@@ -182,6 +182,10 @@ body{
         }
     }
 
+    .section_title{
+        border-bottom: 1px solid gray;
+    }
+
     footer{
         color: white;
         .outterLinks{
@@ -191,11 +195,6 @@ body{
                 margin: 1vh 0.5vw;
                 img{
                     width: 50px;
-                    filter: contrast(50%);
-                    &:hover{
-                        filter: none;
-                        transition: 0.5s;
-                    }
                 }
             }
         }

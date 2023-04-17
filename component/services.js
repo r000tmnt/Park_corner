@@ -1,5 +1,4 @@
 const services = {
-  props: ['lang'],
   template: `
   <section id="Short_info">
     <div class="container">
@@ -22,9 +21,10 @@ const services = {
       </div>
     </div>
   </section>
-  `,
-  created(){
-    console.log(this.$props)
+  `,  
+  props: ['lang'],
+  setup(props){
+    console.log(props)
   }
 }
 

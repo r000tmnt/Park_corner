@@ -1,12 +1,11 @@
 const contactForm = {
-    props: ['lang'],
     template: `
-    <section id="contact" style="position: relative; margin-bottom: 3vh;">
+    <section id="contact" class="mb-5" style="position: relative;">
         <div class="container">
             <div class="row">
-
                 <div class="col-md-4">
                     <form id="theForm" enctype="multipart/form-data">
+                        <h1 class="section_title mb-4">聯絡我</h1>
                         <div class="form-group">
                             <label for="">*姓名: </label>
                             <input type="text" id="name" name="name" class="form-control">
@@ -60,7 +59,7 @@ const contactForm = {
                         </div>
 
                         <div class="text-right">
-                            <input type="button" class="btn btn-secondary" value="取消">
+                            <input type="button" class="btn btn-secondary mr-2" value="取消">
                             <input type="submit" class="btn btn-primary submitBtn" name="submit" value="確認">
                         </div>
                     </form> 
@@ -82,12 +81,13 @@ const contactForm = {
         </div>
 
         <div class="row form-decoration justify-content-end">
-            <div id="Pic" class="col-md-7 bg-cover" style="background-image: url('images/makson-serpa-7KAInrNdG0U-unsplash.jpg'); top:0; bottom:0; position: absolute; height: 80vh"></div>
+            <div id="Pic" class="col-md-7 bg-cover" style="background-image: url('images/makson-serpa-7KAInrNdG0U-unsplash.jpg'); top: 0; bottom:0; position: absolute; height: 90vh"></div>
         </div>
     </section>
-    `,
-    created(){
-        console.log(this.$props)
+    `,    
+    props: ["lang"],
+    setup(props) {
+        console.log(props)
     }
 }
 

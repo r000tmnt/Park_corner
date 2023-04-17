@@ -1,12 +1,7 @@
 const footer = {
-    data(){
-        return {
-            year: new Date().getFullYear()
-        }
-    },
     template: `
     <footer class="bg-dark">
-        <div class="container">
+        <div class="container py-4">
             <div class="outterLinks">
                 <a class="link" href="https://www.pixiv.net/users/3093390">
                 <img src="images/pixiv_icon.ico" alt="Not found"></a>
@@ -21,12 +16,16 @@ const footer = {
                 
             </div>
 
-            <div class="text-center py-3">Park Corner &copy;Copyright {{year}}</div>
+            <div class="text-center py-3">Park Corner &copy;Copyright 2020 - {{year}}</div>
         </div>
     </footer>
     `,
-    created(){
-        console.log(this)
+    setup() {
+        const year = new Date().getFullYear()
+
+        return {
+            year
+        }
     }
 }
 

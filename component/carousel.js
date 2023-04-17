@@ -1,5 +1,4 @@
 const carousel = {
-    props: ['lang'],
     template: `
     <section class="Carousel">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -54,9 +53,10 @@ const carousel = {
             </a>
         </div>
     </section>
-    `,
-    created() {
-        console.log(this)
+    `,    
+    props: ['lang'],
+    setup(props) {
+        console.log(props)
     }
 }
 

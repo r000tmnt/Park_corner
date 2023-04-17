@@ -13,6 +13,8 @@
 
     <!-- Vue3 CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Vue i18n -->
+    <script src="https://unpkg.com/vue-i18n@9"></script> 
 
     <title>公園一角/Park Corner</title>
   </head>
@@ -45,10 +47,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
     <script src="js/FormSubmit.js"></script>
-    <script src="js/changeLanguage.js"></script>
 
     <script type="module">
-      const { createApp } = Vue;
+      const { createApp, ref } = Vue;
+      const { createI18n } = VueI18n;
+      
+      import language from './js/locale.js'
       import Navbar from './component/navbar.js'
       import Carousel from './component/carousel.js'
       import Services from './component/services.js'
@@ -58,12 +62,12 @@
       import ContactForm from './component/contactForm.js'
       import FooterCompoment from './component/footer.js'
 
+      const i18n = createI18n({
+        locale: 'zh_TW',
+        message: language
+      })
+
       const app = createApp({
-        data() {
-          return {
-            lang: 'zh'
-          }
-        },
         components: {
           Navbar,
           Carousel,
@@ -73,8 +77,17 @@
           StyleReferences,
           ContactForm,
           FooterCompoment
-        },
+        },        
+        setup(){
+          const lang = ref('ZH_TW')
+
+          return {
+            lang
+          }
+        }
       })
+
+      app.use(i18n)
 
       app.mount('#app')
     </script>

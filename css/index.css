@@ -159,6 +159,9 @@ body #Short_info .explain:hover {
   background-color: #222;
   transition: 0.5s;
 }
+body .section_title {
+  border-bottom: 1px solid gray;
+}
 body footer {
   color: white;
 }
@@ -171,11 +174,6 @@ body footer .outterLinks .link {
 }
 body footer .outterLinks .link img {
   width: 50px;
-  filter: contrast(50%);
-}
-body footer .outterLinks .link img:hover {
-  filter: none;
-  transition: 0.5s;
 }
 @media (max-width: 768px) {
   body #Commission_Detail {

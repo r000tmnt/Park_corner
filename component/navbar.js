@@ -1,5 +1,4 @@
 const navbar = {
-    props: ['lang'],
     template: `
     <section class="bg-dark">
         <div class="container">
@@ -31,17 +30,19 @@ const navbar = {
         </nav>
         </div>
     </section>
-    `,
+    `,    
+    props: ['lang'],
+    setup(props , { emit }) {
+        console.log(props)
 
-    methods: {
-        changeLanguage(language) {
-            this.lang = language
-            this.$emit('changeLang', language)
+        const changeLanguage = (language) => {
+            console.log(language)
+            emit('changeLang', language)
         }
-    },
 
-    created() {
-        console.log(this.$props)
+        return {
+            changeLanguage
+        }
     }
 }
 

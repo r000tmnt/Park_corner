@@ -1,5 +1,4 @@
 const selfIntroduction = {
-    props: ['lang'],
     template: `
     <section class="bg-white" style="position: relative; height: 33vh;" id="self">
 
@@ -31,9 +30,10 @@ const selfIntroduction = {
         </div>
 
     </section>
-    `,
-    created(){
-        console.log(this.$props)
+    `,    
+    props: ['lang'],
+    setup(props) {
+        console.log(props)
     }
 }
 
