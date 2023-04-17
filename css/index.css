@@ -49,17 +49,10 @@ body {
   scroll-behavior: smooth;
   background-color: #f8f9fa !important;
 }
-body .lang {
-  float: right;
-}
-body .lang:focus {
-  outline: none;
-}
-body .lang .active {
+body .dropdown-menu .current_lang {
   color: steelblue;
-  background-color: none;
 }
-body .lang a {
+body .dropdown-menu a {
   margin-left: 0.3vw;
 }
 body .bg-cover {

@@ -16,10 +16,10 @@ const navbar = {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" id="about" href="#self">關於我</a>
+                            <a class="nav-link" id="about" href="#self">{{ t('about') }}</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" id="form" href="#contact">聯絡我</a>
+                            <a class="nav-link" id="form" href="#contact">{{ t('contact') }}</a>
                         </li>
                         
                     </ul>
@@ -30,8 +30,8 @@ const navbar = {
                         <i class="fas fa-language" style="font-size: 1.5rem"></i>
                     </button>
                     <div class="dropdown-menu">
-                        <a href="#" id="zh" class="dropdown-item" @click.prevent="changeLanguage('zh-TW')">{{ t('zh_tw') }}</a>
-                        <a href="#" id="eng" class="dropdown-item" @click.prevent="changeLanguage('eng')">{{ t('eng') }}</a>
+                        <a href="#" id="zh" class="dropdown-item ml-0" :class="{ current_lang: locale === 'zh_TW' }" @click.prevent="changeLanguage('zh-TW')">{{ t('zh_tw') }}</a>
+                        <a href="#" id="eng" class="dropdown-item ml-0" :class="{ current_lang: locale === 'eng' }" @click.prevent="changeLanguage('eng')">{{ t('eng') }}</a>
                     </div>
                 </div>                  
             </nav>
@@ -47,11 +47,12 @@ const navbar = {
             emit('changeLang', language)
         }
 
-        const { t } = useI18n()
+        const { t, locale } = useI18n()
 
         return {
             changeLanguage,
-            t
+            t,
+            locale
         }
     }
 }

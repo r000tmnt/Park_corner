@@ -82,12 +82,14 @@
           FooterCompoment
         },        
         setup(){
-          const { t, locale } = i18n.global
+          let { t, locale } = i18n.global
           const lang = ref(locale)
+
+          console.log(locale)
     
           const changeLocale = (v) => {
             console.log(v)
-            locale = v
+            i18n.global.locale = v
           }
 
           return {

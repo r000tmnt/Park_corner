@@ -55,11 +55,7 @@ body{
     scroll-behavior: smooth;
     background-color: #f8f9fa!important;
 
-    .lang{
-        float: right;
-        &:focus{
-            outline: none;
-        }
+    .dropdown-menu{
         .current_lang{
             color: steelblue;
         }
