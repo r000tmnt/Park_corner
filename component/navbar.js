@@ -38,12 +38,9 @@ const navbar = {
         </div>
     </section>
     `,    
-    props: ['lang'],
-    setup(props , { emit }) {
-        console.log(props)
+    setup(props, { emit }) {
 
         const changeLanguage = (language) => {
-            console.log(language)
             emit('changeLang', language)
         }
 

@@ -28,8 +28,8 @@
                 "簡單留白，賽璐璐或是油彩厚塗? 風格是可以切換的。"
             ],
             AboutMe: "半路覺醒成為獸控的阿宅，以畫筆表達對作品的喜好。曾經瘋了五年的忍者龜，對風格的影響顯而易見。",
-            link: "作品參考:", 
-            email: "聯絡方式:",
+            link: "作品參考", 
+            email: "聯絡方式",
             workFlow: "委託流程",
             workFlow_title: [
                 "1.請聲明委託用途",
@@ -93,14 +93,14 @@
                 "Time management",
                 "Variaty of style"
             ],
-            serviecDesc: [
+            serviceDesc: [
                 "Seek the produt that will satisfy both side.",
                 "Freelance is duty to not meet the deadline, contact regularly.",
                 "Simplify, cel-shading or oil paint-ish? The style is your choice."
             ],
             AboutMe: "A nerd and a furry, often express his thoughts with brushes. Used to be a fan of TMNT, the show has it's impact on the style.",
-            link: "Reference work:", 
-            email: "Contact:",
+            link: "Reference work", 
+            email: "Contact",
             workFlow: "Commission workflow",
             workFlow_title: [
                 "1.State the purpose of the commission",
