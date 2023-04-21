@@ -52,7 +52,7 @@
                 }
             ],
             reference: "參考",
-            reference_note: "未列出格式不代表無法接受，可與繪師討論",
+            reference_note: "*未列出格式不代表無法接受，可與繪師討論",
             reference_styles: [
                 "灰階",
                 "賽璐璐",
@@ -72,8 +72,9 @@
             form_field_profile_avatar: "大頭貼",
             form_field_cover_art: "書籍封面",
             form_field_other: "其他",
-            form_field_reference: "參考附件(多選)",
+            form_field_reference: "參考附件(最多5個，每個檔案不超過1MB)",
             form_field_desc: "詳細說明：",
+            form_submit: "送出",
             upload: "上傳中..."
         },
         eng: {
@@ -148,8 +149,9 @@
             form_field_profile_avatar: "Profile avatar",
             form_field_cover_art: "Cover art",
             form_field_other: "Other",
-            form_field_reference: "Reference(Multilple select)",
-            form_field_desc: "Description：",            
+            form_field_reference: "Reference(Up to 5 files, max to 1 MB for each one)",
+            form_field_desc: "Description：",
+            form_submit: "Submit",         
             upload: "Uploading..."
         }
     }
