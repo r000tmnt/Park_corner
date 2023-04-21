@@ -26,10 +26,10 @@
 }
 @keyframes popUP {
   from {
-    font-size: 1rem;
+    font-size: 3em;
   }
   to {
-    font-size: 2rem;
+    font-size: 6em;
   }
 }
 .fadeIN {
@@ -88,18 +88,7 @@ body .row #detail {
   width: 100%;
   height: 20vh;
 }
-body .row .submit_modal {
-  width: 100vw;
-  z-index: 3;
-  /* background-color: rgba(34, 34, 34, 0.75); */
-}
 body .row .submit_modal #animation {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  /* border: 1px solid blue; */
-  border-radius: 50px;
   padding: 1% 2%;
   background-color: white;
   display: flex;
@@ -148,6 +137,16 @@ body #Short_info .explain:hover {
 }
 body .section_title {
   border-bottom: 1px solid gray;
+}
+body .img-thumbnail {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body .flex_center {
+  display: flex;
+  justify-content: center;
 }
 body footer {
   color: white;
@@ -202,18 +201,8 @@ body footer .outterLinks .link img {
   body .form-decoration {
     margin-right: 0 !important;
   }
-  body .submit_modal #animation {
-    margin-top: -50vh;
-  }
 }
 @media (max-width: 576px) {
-  body .submit_modal {
-    margin-right: 60% !important;
-  }
-  body .submit_modal #animation {
-    width: 60vw;
-    height: 30vh;
-  }
   body .submit_modal #animation i {
     font-size: 7rem !important;
   }

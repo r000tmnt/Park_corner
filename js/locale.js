@@ -74,8 +74,15 @@
             form_field_other: "其他",
             form_field_reference: "參考附件(最多5個，每個檔案不超過1MB)",
             form_field_desc: "詳細說明：",
+            "validations.required": "此為必填欄位",
+            "validations.maxLength": "字數上限為",
+            "validations.numeric": "只能填入數字",
+            "validations.email": "無效的信箱地址",
+            form_field_error: "請檢察必填欄位",
             form_submit: "送出",
-            upload: "上傳中..."
+            upload: "上傳中...",
+            upload_success: "上傳成功",
+            upload_failed: "上傳失敗",            
         },
         eng: {
             zh_tw: "Chinese",
@@ -151,8 +158,15 @@
             form_field_other: "Other",
             form_field_reference: "Reference(Up to 5 files, max to 1 MB for each one)",
             form_field_desc: "Description：",
+            "validations.required": "This field is required",
+            "validations.maxLength": "The max length of value is",            
+            "validations.numeric": "Must be numeric",         
+            "validations.email": "Invaild email address",
+            form_field_error: "Please fill the required fields",
             form_submit: "Submit",         
-            upload: "Uploading..."
+            upload: "Uploading...",
+            upload_success: "Upload success",
+            upload_failed: "Upload failed",
         }
     }
 

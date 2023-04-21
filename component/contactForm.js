@@ -1,18 +1,20 @@
-const { ref, reactive } = Vue
+const { ref, reactive, computed } = Vue
 const { useI18n } = VueI18n
 const { useVuelidate } = Vuelidate
-const { required, email, maxLength, numeric } = VuelidateValidators
-
-console.log(VuelidateValidators)
-// console.log(required)
-// console.log(email)
+const { required, helpers, email, maxLength, numeric } = VuelidateValidators
 
 const contactForm = {
     template: `
     <section id="contact" class="mb-5" style="position: relative;">
         <div class="container">
+
+            <div class="text-danger">
+                {{ formErrorExistMessage }}
+            </div>
+
             <div class="row">
                 <div class="col-md-4">
+
                     <form id="theForm" enctype="multipart/form-data">
                         <h1 class="section_title mb-4">{{ t('contact') }}</h1>
 
@@ -45,6 +47,10 @@ const contactForm = {
 
                         <label><span class="text-danger">*</span>類型</label>
 
+                        <div class="text-danger" v-for="error of v$.type.$errors" :key="error.$uid">
+                            {{ error.$message }}
+                        </div>
+
                         <div class="form-check">
                             <input type="checkbox" id="OC" name="checkbox[]" class="form-check-input Checkbox" value="OC" v-model="v$.type.$model">
                             <label>{{ t('form_field_character_design') }}</label>
@@ -70,10 +76,6 @@ const contactForm = {
                             <label>{{ t('form_field_other') }}</label>
                         </div>
 
-                        <div class="text-danger" v-for="error of v$.type.$errors" :key="error.$uid">
-                            {{ error.$message }}
-                        </div>
-
                         <div class="form-group">
                             <label>{{ t('form_field_reference') }}</label>
                             <input type="file" name="files[]" id="file" @change="getFile" multiple>
@@ -93,22 +95,49 @@ const contactForm = {
                         </div>
 
                         <div class="text-right">
-                            <button type="button" class="btn btn-primary submitBtn">{{ t('form_submit') }}</button>
+                            <button type="button" 
+                            data-toggle="modal" 
+                            data-target="#postStatModal" 
+                            class="btn btn-primary submitBtn" 
+                            @click="formSubmit"
+                            :disabled="checkFormFields">
+                                {{ t('form_submit') }}
+                            </button>
                         </div>
                     </form> 
                 </div>
 
-                <!--loading animation-->
-                <div class="row">
-                    <div class="submit_modal" style="display: none;">
-                        <div id="animation">
-                            <div class="outterCircle">
-                                <div class="innerCircle"></div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="postStatModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <!--loading animation-->
+                        <div class="submit_modal">
+                            <div id="animation">
+
+                                <div v-if="!formPostStat && formPostStatMessage.length" class="flex_center mb-4">
+                                    <i class="fas fa-6x fa-times popUP" style="color: red;"></i>                                
+                                </div>
+
+                                <div v-else-if="formPostStat && formPostStatMessage.length" class="flex_center mb-4">
+                                    <i class="fas fa-6x fa-check popUP" style="color: green;"></i>                                
+                                </div>
+
+                                <div v-else class="outterCircle mb-4">
+                                    <div class="innerCircle"></div>
+                                </div>
+                                <h3 class="loading">{{ !formPostStatMessage.length? t('upload') : formPostStatMessage }}</h3>
                             </div>
-                            <h3 class="loading">{{ t('upload') }}</h3>
                         </div>
+                        <div class="flex_center">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
                     </div>
-                </div> 
+                  </div>
+                </div>
                 
             </div>
         </div>
@@ -117,8 +146,12 @@ const contactForm = {
             <div id="Pic" class="col-md-7 bg-cover" style="background-image: url('images/makson-serpa-7KAInrNdG0U-unsplash.jpg'); top: 0; bottom:0; position: absolute; height: 91vh"></div>
         </div>
     </section>
-    `,    
-    setup() {
+    `,
+    props: ['rules'],    
+    setup(props) {
+        // i18n 翻譯功能
+        const { t, locale } = useI18n()
+
         // 表單欄位
         const form_fields = reactive({
             name: '',
@@ -131,31 +164,58 @@ const contactForm = {
 
         // 檔案欄位錯誤訊息
         const fileErrorMessage = ref('')
+        // 表單發送成功與否狀態
+        const formPostStat = ref(false)
+        // 表單發送成功與否狀態訊息
+        const formPostStatMessage = ref('')
+        // 有表單錯誤時按到送出會顯示的訊息
+        const formErrorExistMessage = ref('')
 
-        // 表單驗證規則
-        const rules = {
-            name: { required },
-            tel: { numeric, maxLength: maxLength(12) },
-            email: { required, email },
-            type: { required },
-            files: { maxLength: maxLength(5) },
-            desc: { required }
-        }
+        const checkFormFields = computed(() => {
+            return !form_fields.name.length || !form_fields.email.length || !form_fields.type.length || !form_fields.desc.length
+        })
+
 
         // vuelidate 驗證設定
-        const v$ = useVuelidate(rules, form_fields)
+        const v$ = useVuelidate(props.rules, form_fields)
 
         console.log(v$)
-
-        // i18n 翻譯功能
-        const { t } = useI18n()
 
         /**
          * 提交表單
          */
         const formSubmit = () => {
+            // assign form data
+            const contactForm = new FormData()
+            contactForm.append('name', form_fields.name)
+            contactForm.append('phone', form_fields.tel)
+            contactForm.append('email', form_fields.email)
+            contactForm.append('checkbox', form_fields.type)
+            contactForm.append('files', form_fields.files)
+            contactForm.append('detail', form_fields.desc)
+
+            for (const pair of contactForm.entries()) {
+                console.log(`${pair[0]}, ${pair[1]}`);
+            }
+
             // call axios
-            console.log('hello')
+            axios.post('../php/process.php', contactForm).then((res) => {
+                console.log('res :>>>', res)
+                formPostStat.value = true
+                formPostStatMessage.value = t('upload_success')
+
+                // clear form fields
+                form_fields.name = ''
+                form_fields.tel = ''
+                form_fields.email = ''
+                form_fields.type.splice(0)
+                form_fields.files.splice(0)
+                form_fields.desc = ''
+            }).catch((error) => {
+                console.log('error :>>>', error)
+                formPostStat.value = false
+                formPostStatMessage.value = t('upload_failed')
+            }) 
         }
 
         /**
@@ -188,6 +248,10 @@ const contactForm = {
             t,
             form_fields,
             fileErrorMessage,
+            formPostStat,
+            formPostStatMessage,
+            formErrorExistMessage,
+            checkFormFields,
             v$,
             formSubmit,
             getFile

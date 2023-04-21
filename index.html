@@ -14,13 +14,16 @@
     <!-- Vue3 CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+    <!-- Vue i18n -->
+    <script src="https://unpkg.com/vue-i18n@9"></script> 
+
     <!-- Vuelidate -->
     <script src="https://cdn.jsdelivr.net/npm/vue-demi"></script>
     <script src="https://cdn.jsdelivr.net/npm/@vuelidate/core"></script>
     <script src="https://cdn.jsdelivr.net/npm/@vuelidate/validators"></script>
 
-    <!-- Vue i18n -->
-    <script src="https://unpkg.com/vue-i18n@9"></script> 
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <title>公園一角/Park Corner</title>
   </head>
@@ -40,7 +43,7 @@
 
       <Style-References :styles="styles"></Style-References>
 
-      <Contact-Form></Contact-Form>
+      <Contact-Form :rules="rules"></Contact-Form>
 
       <Footer-Compoment></Footer-Compoment>
 
@@ -58,8 +61,7 @@
       const { createApp, ref } = Vue;
       const { createI18n } = VueI18n;
       const vuelidate = Vuelidate;
-
-      // console.log(VuelidateValidators)
+      const { required, helpers, email, maxLength, numeric, createI18nMessage  } = VuelidateValidators
       
       import language from './js/locale.js'
       import Navbar from './component/navbar.js'
@@ -78,6 +80,30 @@
         messages: language
       })
 
+      const withI18nMessage = createI18nMessage({ t: i18n.global.t.bind(i18n) })
+
+      console.log(withI18nMessage)
+
+      // 表單驗證規則加上客製化的驗證訊息
+      const rules = {
+          name: { 
+              required: withI18nMessage(required) 
+          },
+          tel: { 
+              numeric: withI18nMessage(numeric), 
+              maxLength: withI18nMessage(maxLength(12))
+          },
+          email: { 
+              required: withI18nMessage(required),
+              email: withI18nMessage(email) 
+          },
+          type: { 
+              required: withI18nMessage(required)  
+          },
+          desc: { 
+              required: withI18nMessage(required) 
+          }
+      }      
 
       const app = createApp({
         components: {
@@ -93,7 +119,7 @@
         setup(){
           let { t, locale } = i18n.global
 
-          const styles = { ...i18n.global.messages[`${locale}`].reference_styles }
+          const styles = { ...i18n.global.messages.eng.reference_styles }
 
           console.log(styles)
     
@@ -105,6 +131,7 @@
           return {
             changeLocale,
             styles,
+            rules,
             t,
           }
         }
