@@ -28,7 +28,7 @@
                 "簡單留白，賽璐璐或是油彩厚塗? 風格是可以切換的。"
             ],
             AboutMe: "半路覺醒成為獸控的阿宅，以畫筆表達對作品的喜好。曾經瘋了五年的忍者龜，對風格的影響顯而易見。",
-            link: "作品參考", 
+            link: "出沒地點", 
             email: "聯絡方式",
             workFlow: "委託流程",
             workFlow_steps: [
@@ -112,7 +112,7 @@
                 "Simplify, cel-shading or oil paint-ish? The style is your choice."
             ],
             AboutMe: "A nerd and a furry, often express his thoughts with brushes. Used to be a fan of TMNT, the show has it's impact on the style.",
-            link: "Reference work", 
+            link: "Outer links", 
             email: "Contact",
             workFlow: "Commission workflow",
             workFlow_steps: [

@@ -1,107 +1,119 @@
+const { ref, computed } = Vue;
+const { useI18n } = VueI18n
+
 const styleReferences = {
     template: `
     <section style="position: relative;">
         <div class="container">
             <div class="row">
                 <div id="reference" class="col-md-12" style="z-index: 1;">
-                    <h1 class="section_title mb-4">參考
-                        <span style="font-size: 1rem">*未列出格式不代表無法接受，可與繪師討論</span>
+                    <h1 class="section_title mb-4">{{ t('reference') }}
+                        <span style="font-size: 1rem">{{ t('reference_note') }}</span>
                     </h1>
 
-                    <table id="desktop" class="table desktop"> 
-                        <thead>
-                            <tr>
-                                <th><h4>線搞</h4></th>
-                                <th><h4>賽璐璐</h4></th>
-                                <th><h4>油彩厚塗</h4></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p class="demo bg-cover" style="background-image: url('images/Commission_Demo-Lineart01.jpg');"></p>
-                                </td>
-                                <td>
-                                    <p class="demo bg-cover" style="background-image: url('images/Commission_Demo-celShading.jpg');"></p>
-                                </td>
-                                <td>
-                                    <p class="demo bg-cover" style="background-image: url('images/Commission_Demo-FullShading.jpg');"></p>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>NT 300</td>
-                                <td>NT 1000</td>
-                                <td>NT 1700</td>
-                            </tr>  
-                            
-                            <tr>
-                                <td colspan="3">
-                                    <p>追加人物 NT 500(一個角色)</p>
-                                    <p>加背景 NT 500~900(依複雜程度而定)</p>
-                                    <p>委託約於一周內完成，繪師會與你保持聯絡追蹤進度</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <!--Table for mobile-->
-                    <table id="mobile" class="table mobile"> 
-                        <tbody>
-                            <tr>
-                                <td>線搞</td>
-                                <td data-th="線搞">
-                                    <p class="demo bg-cover" style="background-image: url('images/Commission_Demo-Lineart01.jpg');"></p>
-                                </td>
-                                <td>NT 300</td>
-                            </tr>
-
-                            <tr>
-                                <td>賽璐璐</td>
-                                <td data-th="賽璐璐">
-                                    <p class="demo bg-cover" style="background-image: url('images/Commission_Demo-celShading.jpg');"></p>
-                                </td>
-                                <td>NT 1000</td>
-                            </tr>  
-                            
-                            <tr>
-                                <td>油彩厚塗</td>
-                                <td data-th="油彩厚塗">
-                                    <p class="demo bg-cover" style="background-image: url('images/Commission_Demo-FullShading.jpg');"></p>
-                                </td>
-                                <td>NT 1500</td>
-                            </tr>
-                        </tbody>  
-                        
-                        <tfoot>
-                            <tr>
-                                <td colspan="3">
-                                    <p>追加人物 NT 500(一個角色)</p>
-                                    <p>加背景 NT 500~900(依複雜程度而定)</p>
-                                    <p>委託約於一周內完成，繪師會與你保持聯絡追蹤進度</p>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item mr-1" v-for="(style, index) in reference_styles_images" :key="index">
+                            <a class="nav-link" href="#" @click.prevent="" :class="{ active: currentStyle === style.name }" >
+                                <span>{{ tm('reference_styles')[index] }}</span>
+                            </a>
+                        </li>                        
+                    </ul>    
                     
+                    <!-- Context of the style -->
+                    <div class="card mb-4">
+                        <div class="card-body row">
+                            <div class="col-md-6">
+                                <img class="img-fluid" style="width: 500px; height: 500px; object-fit: cover;" :src="current_reference_style.images[current_reference_style_images_index]" :alt="currentStyle">
+                         
+                                <div id="carouselExampleFade" class="carousel mt-4" style="width: 500px; height: 100px">
+                                    <div class="carousel-inner">
+
+                                        <div class="d-flex justify-content-start">
+                                            <button 
+                                            class="me-2 border-0 rounded bg-body" 
+                                            v-for="(img, index) in current_reference_style.images" 
+                                            :key="img"
+                                            @click="changeRefernceImage(index)">
+                                                <img :src="img" class="d-block img-thumbnail" :class="{'border-2': index === current_reference_style_images_index}" :alt="currentStyle" style="height: 100px">
+                                            </button>                                                
+                                        </div>                                    
+   
+                                    </div>
+
+                                    <!-- 切換按鈕，未來有需要再作
+                                        <button class="carousel-control-prev h-25" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon h-25" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>                                    
+                                    -->
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <span class="card-text fs-3 text-warning float-end">{{ tm('reference_prices')[getRefernceStyleIndex] }}</span>                              
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
 
     </section>
-    `,    
-    props: ['lang'],
+    `,
+    props: ['styles'],
     setup(props) {
-        console.log(props)
-        
-        const reference_styles_images = [
-            'images/Commission_Demo-Lineart01.jpg',
-            'images/Commission_Demo-celShading.jpg',
-            'images/Commission_Demo-FullShading.jpg'
+        const { t, tm } = useI18n()
 
-        ]
+        // default to first one
+        const currentStyle = ref(props.styles[0])
+
+        console.log(props.styles)
+        
+        const reference_styles_images = {}
+
+        for(let i=0; i < Object.keys(props.styles).length; i++){
+
+            reference_styles_images[i] = {
+                name: props.styles[i],
+                images: [
+                    'images/Commission_Demo-Lineart01.jpg',
+                    'images/Commission_Demo-celShading.jpg',
+                    'images/Commission_Demo-FullShading.jpg'
+                ]
+            }
+
+        }
+
+        console.log(reference_styles_images)
+
+        const current_reference_style_images_index = ref(0)
+        const current_reference_style = reference_styles_images[`${current_reference_style_images_index.value}`]
+        console.log(current_reference_style)
+
+        const changeRefernceImage = (index) => {
+            current_reference_style_images_index.value = index
+        }
+
+        const getRefernceStyleIndex = computed(() => {
+            return Object.keys(props.styles).findIndex((key) => props.styles[key] === currentStyle.value)
+        })
+
         return {
-            reference_styles_images
+            currentStyle,
+            current_reference_style,
+            current_reference_style_images_index,
+            reference_styles_images,
+            changeRefernceImage,
+            getRefernceStyleIndex,
+            t,
+            tm
         }
     }    
 }

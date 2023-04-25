@@ -150,12 +150,12 @@ body{
 
     #Short_info{
         background-color:  steelblue;
-        color: white;
 
         .explain{
             text-align: center;
             &:hover{
                 background-color:  #222;
+                color: white;
                 transition: 0.5s;
             }
         }

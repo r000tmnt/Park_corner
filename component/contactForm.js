@@ -143,7 +143,7 @@ const contactForm = {
         </div>
 
         <div class="row form-decoration justify-content-end">
-            <div id="Pic" class="col-md-7 bg-cover" style="background-image: url('images/makson-serpa-7KAInrNdG0U-unsplash.jpg'); top: 0; bottom:0; position: absolute; height: 91vh"></div>
+            <div id="Pic" class="col-md-7 bg-cover h-100" style="background-image: url('images/makson-serpa-7KAInrNdG0U-unsplash.jpg'); top: 0; bottom:0; position: absolute;"></div>
         </div>
     </section>
     `,

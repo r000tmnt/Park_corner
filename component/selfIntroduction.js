@@ -17,8 +17,9 @@ const selfIntroduction = {
                     <div class="row mt-3 text">
                         <div class="col-md-6" id="whoamI">
                             <h4>{{ t('link') }}:</h4>
-                            <p><a class="refer" href="https://www.pixiv.net/users/3093390">Pixiv</a></p>
-                            <p><a class="refer" href="https://www.furaffinity.net/user/r000tmnt/">Fur Affinity</a></p>
+                            <a class="link me-3" v-for="link in outerLinks" :href="link.url">
+                                <img :src="link.icon" :alt="link.name" class="text-info" style="width: 7%">
+                            </a>
                         </div>
                         <div class="col-md-6">
                             <h4>{{ t('email') }}: </h4>
@@ -35,8 +36,32 @@ const selfIntroduction = {
     setup() {
         const { t } = useI18n()
 
+        const outerLinks = [
+            {
+                name: 'Pixiv',
+                icon: 'images/pixiv.svg',
+                url: 'https://www.pixiv.net/users/3093390'
+            },
+            {
+                name: 'Furaffinity',
+                icon: 'images/furaffinity.svg',
+                url: 'https://www.furaffinity.net/user/r000tmnt/'
+            },
+            {
+                name: 'twitter',
+                icon: 'images/twitter.svg',
+                url: 'https://twitter.com/r000tmnt'
+            },
+            {
+                name: 'Patreon',
+                icon: 'images/patreon.svg',
+                url: 'https://www.patreon.com/parkcorner'
+            }
+        ]
+
         return {
             t,
+            outerLinks
         }
     }
 }

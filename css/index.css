@@ -126,13 +126,13 @@ body .row .submit_modal #animation #close:hover {
 }
 body #Short_info {
   background-color: steelblue;
-  color: white;
 }
 body #Short_info .explain {
   text-align: center;
 }
 body #Short_info .explain:hover {
   background-color: #222;
+  color: white;
   transition: 0.5s;
 }
 body .section_title {
