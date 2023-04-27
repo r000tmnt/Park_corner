@@ -48,6 +48,7 @@
 body {
   scroll-behavior: smooth;
   background-color: #f8f9fa !important;
+  overflow-x: hidden;
 }
 body .dropdown-menu .current_lang {
   color: steelblue;
@@ -203,6 +204,9 @@ body footer .outterLinks .link img {
   }
 }
 @media (max-width: 576px) {
+  body #Short_info .container .row {
+    margin: unset;
+  }
   body .submit_modal #animation i {
     font-size: 7rem !important;
   }

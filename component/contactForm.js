@@ -18,32 +18,33 @@ const contactForm = {
                     <form id="theForm" enctype="multipart/form-data">
                         <h1 class="section_title mb-4">{{ t('contact') }}</h1>
 
-                        <div class="form-group">
-                            <label for=""><span class="text-danger">*</span>{{ t('form_field_name') }}</label>
+                        <div class="mb-3">
+                            <label for="name" class="form-label"><span class="text-danger">*</span>{{ t('form_field_name') }}</label>
                             <input type="text" id="name" name="name" class="form-control" v-model="v$.name.$model">
 
                             <div class="text-danger" v-for="error of v$.name.$errors" :key="error.$uid">
                                 {{ error.$message }}
-                            </div>
+                            </div>                        
                         </div>
 
-                        <div class="form-group">
-                            <label for="">{{ t('form_field_tel') }}</label>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">{{ t('form_field_tel') }}</label>
                             <input type="text" id="phone" name="phone" class="form-control" v-model="v$.tel.$model">
 
                             <div class="text-danger" v-for="error of v$.tel.$errors" :key="error.$uid">
                                 {{ error.$message }}
-                            </div>
+                            </div>                        
                         </div>
 
-                        <div class="form-group">
-                            <label for=""><span class="text-danger">*</span>{{ t('form_field_email') }}</label>
+                        <div class="mb-3">
+                            <label for="email" class="form-label"><span class="text-danger">*</span>{{ t('form_field_email') }}</label>
                             <input type="email" id="email" name="email" class="form-control" v-model="v$.email.$model">
 
                             <div class="text-danger" v-for="error of v$.email.$errors" :key="error.$uid">
                                 {{ error.$message }}
-                            </div>
+                            </div>                        
                         </div>
+
 
                         <label><span class="text-danger">*</span>類型</label>
 
@@ -76,40 +77,36 @@ const contactForm = {
                             <label>{{ t('form_field_other') }}</label>
                         </div>
 
-                        <div class="form-group">
-                            <label>{{ t('form_field_reference') }}</label>
-                            <input type="file" name="files[]" id="file" @change="getFile" multiple>
+                        <label for="files" class="form-label mt-3">{{ t('form_field_reference') }}</label>
+                        <input type="file" name="files[]" id="file" @change="getFile" multiple>
 
-                            <div class="text-danger" v-if="fileErrorMessage.length">
-                                {{ fileErrorMessage }}
-                            </div>
+                        <div class="text-danger" v-if="fileErrorMessage.length">
+                            {{ fileErrorMessage }}
                         </div>
 
-                        <div class="form-group">
-                            <label for="detail"><span class="text-danger">*</span>{{ t('form_field_desc') }}</label>
-                            <textarea id="detail" name="detail" v-model="v$.desc.$model"></textarea>
+                        <br/>
 
-                            <div class="error text-danger" v-for="error of v$.desc.$errors" :key="error.$uid">
-                                {{ error.$message }}
-                            </div>
+                        <label for="detail" class="form-label mt-3"><span class="text-danger">*</span>{{ t('form_field_desc') }}</label>
+                        <textarea id="detail" name="detail" v-model="v$.desc.$model"></textarea>
+
+                        <div class="error text-danger" v-for="error of v$.desc.$errors" :key="error.$uid">
+                            {{ error.$message }}
                         </div>
 
-                        <div class="text-right">
-                            <button type="button" 
-                            data-toggle="modal" 
-                            data-target="#postStatModal" 
-                            class="btn btn-primary submitBtn" 
-                            @click="formSubmit"
-                            :disabled="checkFormFields">
-                                {{ t('form_submit') }}
-                            </button>
-                        </div>
+                        <button type="button" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#postStatModal" 
+                        class="btn btn-primary submitBtn float-end mt-2" 
+                        @click="formSubmit"
+                        :disabled="checkFormFields">
+                            {{ t('form_submit') }}
+                        </button>
                     </form> 
                 </div>
 
 
                 <!-- Modal -->
-                <div class="modal fade" id="postStatModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="postStatModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-body">
@@ -118,11 +115,11 @@ const contactForm = {
                             <div id="animation">
 
                                 <div v-if="!formPostStat && formPostStatMessage.length" class="flex_center mb-4">
-                                    <i class="fas fa-6x fa-times popUP" style="color: red;"></i>                                
+                                    <i class="fas fa-6x fa-times" style="color: red;"></i>                                
                                 </div>
 
                                 <div v-else-if="formPostStat && formPostStatMessage.length" class="flex_center mb-4">
-                                    <i class="fas fa-6x fa-check popUP" style="color: green;"></i>                                
+                                    <i class="fas fa-6x fa-check" style="color: green;"></i>                                
                                 </div>
 
                                 <div v-else class="outterCircle mb-4">
@@ -132,7 +129,7 @@ const contactForm = {
                             </div>
                         </div>
                         <div class="flex_center">
-                            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
                         </div>
                       </div>
                     </div>

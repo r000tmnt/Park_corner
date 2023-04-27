@@ -54,6 +54,7 @@
 body{
     scroll-behavior: smooth;
     background-color: #f8f9fa!important;
+    overflow-x: hidden;
 
     .dropdown-menu{
         .current_lang{
@@ -243,6 +244,15 @@ body{
     }
 
     @include middle{
+        #Short_info{
+            .container{
+                .row{
+                    margin: unset;
+                }                
+            }
+
+        }
+
         .submit_modal{
             #animation{
                 i{

@@ -13,7 +13,7 @@ const styleReferences = {
 
                     <ul class="nav nav-tabs">
                         <li class="nav-item mr-1" v-for="(style, index) in reference_styles_images" :key="index">
-                            <a class="nav-link" href="#" @click.prevent="" :class="{ active: currentStyle === style.name }" >
+                            <a class="nav-link" href="#" @click.prevent="changeReferenceStyle(index)" :class="{ active: currentStyle === style.name }" >
                                 <span>{{ tm('reference_styles')[index] }}</span>
                             </a>
                         </li>                        
@@ -55,8 +55,24 @@ const styleReferences = {
 
                             </div>
                             <div class="col-md-6">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <span class="card-text fs-3 text-warning float-end">{{ tm('reference_prices')[getRefernceStyleIndex] }}</span>                              
+                                <h5 class="card-title">簡介:</h5>
+                                <p style="white-space: break-spaces">
+                                    {{ tm('reference_caption')[getRefernceStyleIndex] }}
+                                </p>
+
+                                <h5 class="card-title">舉例:</h5>
+                                <p style="white-space: break-spaces">
+                                    {{ tm('reference_example')[getRefernceStyleIndex] }}
+                                </p>
+
+                                <h5 class="card-title">備註:</h5>
+                                <p style="white-space: break-spaces">
+                                    {{ t('reference_ps') }}
+                                </p>
+                                
+                                <!--
+                                <span class="card-text fs-3 text-warning float-end">{{ tm('reference_prices')[getRefernceStyleIndex] }}</span>   
+                                -->                           
                             </div>
                         </div>
                     </div>
@@ -101,6 +117,11 @@ const styleReferences = {
             current_reference_style_images_index.value = index
         }
 
+        const changeReferenceStyle = (index) => {
+            currentStyle.value = props.styles[index]
+            current_reference_style_images_index.value = 0
+        }
+
         const getRefernceStyleIndex = computed(() => {
             return Object.keys(props.styles).findIndex((key) => props.styles[key] === currentStyle.value)
         })
@@ -111,6 +132,7 @@ const styleReferences = {
             current_reference_style_images_index,
             reference_styles_images,
             changeRefernceImage,
+            changeReferenceStyle,
             getRefernceStyleIndex,
             t,
             tm

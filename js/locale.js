@@ -58,6 +58,16 @@
                 "賽璐璐",
                 "油彩厚塗"
             ],
+            reference_caption: [
+                "以灰色為主要使用顏色，並依需求調整深淺濃淡或搭配黑色或白色來增加空間感",
+                "模仿動畫的上色方式，有較為單純的氛圍與明確的色塊邊界",
+                "模仿油彩的上色方式，有較為真實的氛圍與更多的層次變化",
+            ],
+            reference_example: [
+                "頭像: 無背景，NT 300\n半身像: 無背景，NT 450\n全身像: 簡單背景，NT 750",
+                "頭像: 簡單背景，NT 1000\n半身像: 簡單背景，NT 1500\n全身像: 簡單背景，NT 2500",
+                "頭像: 簡單背景，NT 1700\n半身像: 簡單背景，NT 2550\n全身像: 簡單背景，NT 4250",
+            ],
             reference_prices: [
                 "NT 450",
                 "NT 1500",
@@ -142,10 +152,20 @@
                 "Cel-shading",
                 "Full-shading"
             ],
+            reference_caption: [
+                "Use a range of gray-ish color, with black or white to add some depth to the picture.",
+                "Imitate the look and the feeling of cel animation, with defined outline of colors.",
+                "Imitate the look and the feeling of oil painting, looks more realistic with blurring colors.",
+            ],
+            reference_example: [
+                "Avatar: No background, 10 USD\nHalf body: No background, 15 USD\nFull body: Simple background, 25 USD",
+                "Avatar: Simple background, 35 USD\nHalf body: Simple background, 52.5 USD\nFull body: Simple background, 87.5 USD",
+                "Avatar: Simple background, 60 USD\nHalf body: Simple background, 90 USD\nFull body: Simple background 150 USD",
+            ],
             reference_prices: [
                 "15 USD",
-                "50 USD",
-                "85 USD"
+                "52.5 USD",
+                "150 USD"
             ],
             reference_ps: "17 USD for additional character. (per character)\n17 ~ 31 USD for additional background. (depends on complexity)\nThe artist will contact the client to discuss about the context and when to start or check on the porgress. The default time span for a commission to be finished is one week.",
             form_field_name: "Name: ",
