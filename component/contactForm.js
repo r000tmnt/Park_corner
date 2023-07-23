@@ -53,27 +53,27 @@ const contactForm = {
                         </div>
 
                         <div class="form-check">
-                            <input type="checkbox" id="OC" name="checkbox[]" class="form-check-input Checkbox" value="OC" v-model="v$.type.$model">
+                            <input type="checkbox" id="OC" name="type[]" class="form-check-input Checkbox" value="OC" v-model="v$.type.$model">
                             <label>{{ t('form_field_character_design') }}</label>
                         </div>
 
                         <div class="form-check">
-                            <input type="checkbox" id="personal" name="checkbox[]" class="form-check-input Checkbox" value="personal" v-model="v$.type.$model">
+                            <input type="checkbox" id="personal" name="type[]" class="form-check-input Checkbox" value="personal" v-model="v$.type.$model">
                             <label>{{ t('form_field_personal_commission') }}</label>
                         </div>
 
                         <div class="form-check">
-                            <input type="checkbox" id="profile" name="checkbox[]" class="form-check-input Checkbox" value="profile" v-model="v$.type.$model">
+                            <input type="checkbox" id="profile" name="type[]" class="form-check-input Checkbox" value="profile" v-model="v$.type.$model">
                             <label>{{ t('form_field_profile_avatar') }}</label>
                         </div>
                         
                         <div class="form-check">
-                            <input type="checkbox" id="cover" name="checkbox[]" class="form-check-input Checkbox" value="cover" v-model="v$.type.$model">
+                            <input type="checkbox" id="cover" name="type[]" class="form-check-input Checkbox" value="cover" v-model="v$.type.$model">
                             <label>{{ t('form_field_cover_art') }}</label>
                         </div>
 
                         <div class="form-check">
-                            <input type="checkbox" id="other" name="checkbox[]" class="form-check-input Checkbox" value="other" v-model="v$.type.$model">
+                            <input type="checkbox" id="other" name="type[]" class="form-check-input Checkbox" value="other" v-model="v$.type.$model">
                             <label>{{ t('form_field_other') }}</label>
                         </div>
 
@@ -188,7 +188,7 @@ const contactForm = {
             contactForm.append('name', form_fields.name)
             contactForm.append('phone', form_fields.tel)
             contactForm.append('email', form_fields.email)
-            contactForm.append('checkbox', form_fields.type)
+            contactForm.append('types', form_fields.type)
             contactForm.append('files', form_fields.files)
             contactForm.append('desc', form_fields.desc)
 

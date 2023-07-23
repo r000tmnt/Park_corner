@@ -9,50 +9,37 @@ $customer_id = "";
 $name = '';
 $phone = "";
 $email = "";
-$checkBoxes = "";
 $types = "";
 $desc = ""; 
 $response = "";
 $files = "";
 $date = date("Y-m-d");
 $time = date("h:i:sa");
-$today = $date.$time
+$today = $date.$time;
 // $totalFile = "";
 
 $fileArray = array();
 
-if (isset($_POST["customer_id"], $_POST["phone"], $_POST["email"], $_POST["checkbox"], $_POST["types"], $_POST["desc"], $_FILES['files'])){
-    $name =  $_POST["name"];
-    $phone = $_POST["phone"];
-    $email = $_POST["email"];
-    $checkBoxes = $_POST["checkbox"];
-    $types = $_POST["types"];
-    $desc = $_POST["desc"];
-    $files = $_FILES['files']['name'];
-}
-
-$detail = mb_convert_encoding($detail, "utf-8");
-
-// Count # of uploaded files in array
-// if(is_countable($totalFile)){
-//     $totalFile = count($_FILES['files']['name']);
-// }
-$showFile = json_encode($files);
-$showType = json_encode($checkBoxes);
-
-// Check if user exist
-$sql = "SELECT id FROM customer WHERE email = '.$email.'"
-
-if(mysqli_query($db, $sql)){
-  echo '找到客戶: >>> '.$response.$result;
-}else{
-  echo "查無客戶，開始新增客戶";
-
-  $sql = "INSERT INTO customer (name, phone, email, checkBoxes, fileNames, desc) VALUES ('$name', '$phone', '$email', '$showType', '$showFile', '$detail')";
+function createCustomer ($db, $name, $phone, $email, $response='') {
+  $sql = "INSERT INTO customer (name, phone, email) VALUES ('$name', '$phone', '$email')";
 
   if(mysqli_query($db, $sql)){
-    echo '新增成功: >>> ' $response. $result;
-    
+    echo "客戶建立成功: ".$response;
+    return true;
+  }else{
+    echo "客戶建立失敗";
+    return false;
+  }
+}
+
+function prepare_file_and_email ($db, $showType, $showFile, $desc, $today, $customer_id='', $response='') {
+
+  if(strlen($customer_id) === 0) {
+    $sql = "SELECT id FROM customer WHERE name = '$name' && email = '$email'";
+    $customer_id = mysqli_query($db, $sql);
+    echo $customer_id;
+  }
+
     //email after submit
     // use PHPMailer\PHPMailer\PHPMailer;
     // require_once "Exception.php";
@@ -91,14 +78,14 @@ if(mysqli_query($db, $sql)){
       //   $mail->AddEmbeddedImage($_FILES['files']['name'][$key], $key)
     //     $mail->addAttachment($_FILES['files']["tmp_name"][$key], $_FILES['files']['name'][$key])
     // }
-    //   $mail->Body = "<h3>Name: $name <br> Phone: $phone <br> Email: $email <br> Type: $showType <br> Files: $showFile <br> Message: $detail</h3>";
+    //   $mail->Body = "<h3>Name: $name <br> Phone: $phone <br> Email: $email <br> Type: $showType <br> Files: $showFile <br> Message: $desc</h3>";
     //   $mail->send();
     //   // echo "Message sent!";
 
-    //   $result = "\r\n姓名: $name\r\n 信箱: $email\r\n 電話: $phone\r\n 類別: $showType\r\n 檔案: $showFile\r\n 描述: $detail";
+    //   $result = "\r\n姓名: $name\r\n 信箱: $email\r\n 電話: $phone\r\n 類別: $showType\r\n 檔案: $showFile\r\n 描述: $desc\r\n 日期: $today";
 
     //   //insert to  database
-    //   $sql = "INSERT INTO commissions (name, phone, email, checkBoxes, fileNames, detail) VALUES ('$name', '$phone', '$email', '$showType', '$showFile', '$detail')";
+    //   $sql = "INSERT INTO commissions (type, customer_id, files, desc, create_date) VALUES ('$showType', '$customer_id', '$showFile', '$desc', '$today')";
       
     //   if(mysqli_query($db, $sql)){
     //     echo $response. $result;
@@ -111,11 +98,53 @@ if(mysqli_query($db, $sql)){
     //   echo "Mailer error: {$mail->ErrorInfo}";
     // }
 
-
-  }else{
-    echo "新增客戶出錯: ".$sql."<br>".mysqli_error($db);
-  }
-
-  mysqli_close($db);
 }
+
+if(isset($_FILES['files'])){
+  $files = $_FILES['files']['name'];
+  $showFile = json_encode($files);
+}
+
+if (isset($_POST["name"], $_POST["phone"], $_POST["email"], $_POST["types"], $_POST["desc"])){
+    $name =  $_POST["name"];
+    $phone = $_POST["phone"];
+    $email = $_POST["email"];
+    $types = $_POST["types"];
+    $desc = $_POST["desc"];
+  
+    $desc = mb_convert_encoding($desc, "utf-8");
+    $showType = json_encode($types);
+
+    // echo "\r\n姓名: $name\r\n 信箱: $email\r\n 電話: $phone\r\n 類別: $showType\r\n 檔案: $showFile\r\n 描述: $desc\r\n 日期: $today";
+
+    //Check if user exist
+    $getCustomer = $pdo->prepare("SELECT id FROM ".$db.".customer WHERE name =:name and email=:email");
+    $getCustomer -> execute(['name' => $name, 'email' => $email]);
+    $existCustomer = $getCustomer -> fetch();
+    // echo "customer: ".json_encode($existCustomer);
+    if($existCustomer["id"]){
+      echo "exist customer: ".$existCustomer["id"];
+      $customer_id = $existCustomer["id"];
+
+      // Old customer, proceed
+      // prepare_file_and_email($db, $showType, $showFile, $desc, $today, $customer_id);
+    }else{
+      echo "fail to get customer: ".$response;
+
+      $newCustomer = createCustomer($db, $name, $phone, $email);
+      echo "newCustomer: ".$newCustomer;
+
+      if($newCustomer === 1){
+        // create customer, proceed
+        prepare_file_and_email($db, $showType, $showFile, $desc, $today);
+      }else{
+        echo "fail to create customer: ".$response;
+      }
+    }
+}else{
+  echo "error";
+}
+
+// Close connection
+$pdo = null;
 ?>
