@@ -1,18 +1,12 @@
 <?php
+header('Access-Control-Allow-Methods: GET, POST');
 //設定連線到資料庫
-$dbHost = "localhost";
-$dbUsername = "root"; // your db username
-$dbPassword = "!poi98788"; // your db user password
-$dbName = "parkcorner_db";
+$userName = "root"; // your db username
+$password = "!poi98788"; // your db user password
+$db = "parkcorner_db";
+$host = 'mysql:host=localhost;debname='.$db.';chartset=utf8';
 
-$db = mysqli_connect($dbHost, $dbUsername, $dbPassword, $dbName);
+$pdo = new PDO($host, $userName, $password);
 
-//查看是否連線成成功
-if(!$db){
-    die("連線失敗: ".mysqli_connect_error());
-}else{
-    echo "連線成功";
-}
-
-mysqli_set_charset($db, "utf8");
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>
