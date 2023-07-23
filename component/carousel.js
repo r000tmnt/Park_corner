@@ -18,7 +18,7 @@ const carousel = {
             </div>
             <div class="carousel-inner">
                     <div v-for="(img, index) in carousel_images" :key="index" class="carousel-item" :class="{ active: index === 0 }">
-                        <img :src="img" class="d-block w-100" alt="banner" style="height: 500px; object-fit: cover" >
+                        <img :src="img" class="d-block w-100" alt="banner" style="height: 500px; object-fit: contain" >
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{ tm('types')[index] }}</h5>
                             <p>{{ tm('types_caption')[index] }}</p>

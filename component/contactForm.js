@@ -184,12 +184,13 @@ const contactForm = {
         const formSubmit = () => {
             // assign form data
             const contactForm = new FormData()
+            
             contactForm.append('name', form_fields.name)
             contactForm.append('phone', form_fields.tel)
             contactForm.append('email', form_fields.email)
             contactForm.append('checkbox', form_fields.type)
             contactForm.append('files', form_fields.files)
-            contactForm.append('detail', form_fields.desc)
+            contactForm.append('desc', form_fields.desc)
 
             for (const pair of contactForm.entries()) {
                 console.log(`${pair[0]}, ${pair[1]}`);

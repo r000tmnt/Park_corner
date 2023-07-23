@@ -1,9 +1,9 @@
 <?php
 //設定連線到資料庫
 $dbHost = "localhost";
-$dbUsername = "root";
-$dbPassword = "poi98799";
-$dbName = "commission_formdata";
+$dbUsername = "root"; // your db username
+$dbPassword = "!poi98788"; // your db user password
+$dbName = "parkcorner_db";
 
 $db = mysqli_connect($dbHost, $dbUsername, $dbPassword, $dbName);
 
