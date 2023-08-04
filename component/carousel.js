@@ -18,7 +18,7 @@ const carousel = {
             </div>
             <div class="carousel-inner">
                     <div v-for="(img, index) in carousel_images" :key="index" class="carousel-item" :class="{ active: index === 0 }">
-                        <img :src="img" class="d-block w-100" alt="banner" style="height: 500px; object-fit: contain" >
+                        <img :src="img" class="d-block w-100" alt="banner" style="height: 500px; object-fit: cover" >
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{ tm('types')[index] }}</h5>
                             <p>{{ tm('types_caption')[index] }}</p>
@@ -39,11 +39,12 @@ const carousel = {
     setup() {
         const { tm } = useI18n()
 
+        //TODO - Prepare images for desktop and mobile
         const carousel_images = [
-            '../images/Garant_the_dragon_monk_character_sheet.jpg',
+            '../images/Grant_the_dragon_monk_character_sheet.jpg',
             '../images/Yourpage_banner.jpg',
             '../images/2020.jpg',
-            '../images/Grant_blacki_deepred_dragon.jpg'
+            '../images/Grant_black_deep_red_dragon.jpg'
         ]
 
         return {

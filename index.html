@@ -46,7 +46,7 @@
 
       <Contact-Form :rules="rules"></Contact-Form>
 
-      <Footer-Compoment></Footer-Compoment>
+      <Footer-Component></Footer-Component>
 
     </div>
 
@@ -67,7 +67,7 @@
       import CommissionDetail from './component/commissionDetail.js'
       import StyleReferences from './component/styleReferences.js'
       import ContactForm from './component/contactForm.js'
-      import FooterCompoment from './component/footer.js'
+      import FooterComponent from './component/footer.js'
 
       const i18n = createI18n({
         allowComposition: true,
@@ -110,7 +110,7 @@
           CommissionDetail,
           StyleReferences,
           ContactForm,
-          FooterCompoment
+          FooterComponent
         },        
         setup(){
           let { t, locale } = i18n.global
