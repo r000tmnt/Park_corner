@@ -33,7 +33,7 @@ const styleReferences = {
                                             class="me-2 border-0 rounded bg-body" 
                                             v-for="(img, index) in current_reference_style.images" 
                                             :key="img"
-                                            @click="changeRefernceImage(index)">
+                                            @click="changeReferenceImage(index)">
                                                 <img :src="img" class="d-block img-thumbnail" :class="{'border-2': index === current_reference_style_images_index}" :alt="currentStyle" style="height: 100px">
                                             </button>                                                
                                         </div>                                    
@@ -57,12 +57,12 @@ const styleReferences = {
                             <div class="col-md-6">
                                 <h5 class="card-title">簡介:</h5>
                                 <p style="white-space: break-spaces">
-                                    {{ tm('reference_caption')[getRefernceStyleIndex] }}
+                                    {{ tm('reference_caption')[getReferenceStyleIndex] }}
                                 </p>
 
                                 <h5 class="card-title">舉例:</h5>
                                 <p style="white-space: break-spaces">
-                                    {{ tm('reference_example')[getRefernceStyleIndex] }}
+                                    {{ tm('reference_example')[getReferenceStyleIndex] }}
                                 </p>
 
                                 <h5 class="card-title">備註:</h5>
@@ -71,7 +71,7 @@ const styleReferences = {
                                 </p>
                                 
                                 <!--
-                                <span class="card-text fs-3 text-warning float-end">{{ tm('reference_prices')[getRefernceStyleIndex] }}</span>   
+                                <span class="card-text fs-3 text-warning float-end">{{ tm('reference_prices')[getReferenceStyleIndex] }}</span>   
                                 -->                           
                             </div>
                         </div>
@@ -113,7 +113,7 @@ const styleReferences = {
         const current_reference_style = reference_styles_images[`${current_reference_style_images_index.value}`]
         console.log(current_reference_style)
 
-        const changeRefernceImage = (index) => {
+        const changeReferenceImage = (index) => {
             current_reference_style_images_index.value = index
         }
 
@@ -122,7 +122,7 @@ const styleReferences = {
             current_reference_style_images_index.value = 0
         }
 
-        const getRefernceStyleIndex = computed(() => {
+        const getReferenceStyleIndex = computed(() => {
             return Object.keys(props.styles).findIndex((key) => props.styles[key] === currentStyle.value)
         })
 
@@ -131,9 +131,9 @@ const styleReferences = {
             current_reference_style,
             current_reference_style_images_index,
             reference_styles_images,
-            changeRefernceImage,
+            changeReferenceImage,
             changeReferenceStyle,
-            getRefernceStyleIndex,
+            getReferenceStyleIndex,
             t,
             tm
         }

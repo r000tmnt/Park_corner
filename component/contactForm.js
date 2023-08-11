@@ -1,7 +1,7 @@
 const { ref, reactive, computed } = Vue
 const { useI18n } = VueI18n
 const { useVuelidate } = Vuelidate
-const { required, helpers, email, maxLength, numeric } = VuelidateValidators
+const { required, email, maxLength, numeric } = VuelidateValidators
 
 const contactForm = {
     template: `
@@ -144,10 +144,10 @@ const contactForm = {
         </div>
     </section>
     `,
-    props: ['rules'],    
-    setup(props) {
+  
+    setup() {
         // i18n 翻譯功能
-        const { t, locale } = useI18n()
+        const { t } = useI18n()
 
         // 表單欄位
         const form_fields = reactive({
@@ -172,9 +172,29 @@ const contactForm = {
             return !form_fields.name.length || !form_fields.email.length || !form_fields.type.length || !form_fields.desc.length
         })
 
+              // 表單驗證規則加上客製化的驗證訊息
+      const rules = {
+            name: { 
+                required: withI18nMessage(required) 
+            },
+            tel: { 
+                numeric: withI18nMessage(numeric), 
+                maxLength: withI18nMessage(maxLength(12))
+            },
+            email: { 
+                required: withI18nMessage(required),
+                email: withI18nMessage(email) 
+            },
+            type: { 
+                required: withI18nMessage(required)  
+            },
+            desc: { 
+                required: withI18nMessage(required) 
+            }
+        }  
 
         // vuelidate 驗證設定
-        const v$ = useVuelidate(props.rules, form_fields)
+        const v$ = useVuelidate(rules, form_fields)
 
         console.log(v$)
 
