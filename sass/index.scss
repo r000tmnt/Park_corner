@@ -56,9 +56,16 @@ body{
     background-color: #f8f9fa!important;
     overflow-x: hidden;
 
+    .navbar{
+        width:80vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .dropdown-menu{
         .current_lang{
-            color: steelblue;
+            background-color: steelblue;
+            color: white;
         }
         a{ 
             margin-left: 0.3vw;
@@ -86,6 +93,10 @@ body{
             }
         }
 
+        .link{
+            width: 25px;
+        }
+
         .demo{
             height: 33vh;
         }
@@ -109,13 +120,17 @@ body{
             height: 20vh;
         }
 
+        #Pic{
+            background-image: url('../images/makson-serpa-7KAInrNdG0U-unsplash.jpg'); 
+            top: 3rem; 
+            bottom:0; 
+            position: absolute;
+        }
+
         .submit_modal{
             #animation{
                 padding: 1% 2%;
                 background-color: white;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
                 .outterCircle{
                     width: 200px;
                     height: 200px;
@@ -172,49 +187,50 @@ body{
         object-fit: cover;
     }
 
-    .flex_center{
-        display: flex;
-        justify-content: center;
-    }
-
     footer{
         color: white;
-        .outterLinks{
-            display: flex;
-            justify-content: center;
-            .link{
-                margin: 1vh 0.5vw;
-                img{
-                    width: 50px;
-                }
-            }
-        }
+        position: relative;
+        z-index: 10;
     }
 
     @include large{
+        .navbar{
+            width: 100%;
+            margin-left: 1%;
+        }
+        
         #Commission_Detail{
             margin-top: 7vh;
         }
 
         .row-mobile{
             margin-left: 0 !important;
-        }
-    
-        .text{
-            color: white;
+            opacity: 0.5;
         }
 
-        .refer{
-            color: lightgoldenrodyellow;
-            &:hover{
-                color: whitesmoke;
-                background-color: rgba(34, 34, 34, 0.7);
-                transition: .5s;
-            }
+        #whoamI{
+            margin-bottom: 15px;
         }
-    
+
+        .email{
+            flex-direction: column;
+            .refer{
+                color: steelblue;
+                &:hover{
+                    color: whitesmoke;
+                    background-color: rgba(34, 34, 34, 0.7);
+                    transition: .5s;
+                }
+            }    
+        }
+
+
         .demo{
             height: 43vh!important;
+        }
+
+        .ref-desc{
+            margin-top: 20px;
         }
     
         .desktop{
@@ -228,10 +244,6 @@ body{
             }
         }
 
-        .link{
-            width: 10%;
-        }
-
         #Pic{
             margin-top: 3vh;
             position: static !important;
@@ -239,6 +251,14 @@ body{
 
         .form-decoration{
             margin-right: 0 !important;
+        }
+
+        #contact{
+            .row{
+                .col-md-4{
+                    width: 100%;
+                }                
+            }
         }
 
     }
@@ -263,10 +283,6 @@ body{
                 }
             }
         }
-
-        .link{
-            margin-right: 2vw!important;
-        }
     }
 
     @include small{
@@ -276,10 +292,6 @@ body{
 
         .demo{
             height: 45vh!important;
-        }
-
-        .link{
-            margin-right: 4vw!important;
         }
     }
 }

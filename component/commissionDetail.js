@@ -2,7 +2,7 @@ const { useI18n } = VueI18n
 
 const commissionDetail = {
     template: `
-    <header class="py-5" id="Commission_Detail">
+    <section class="py-5" id="Commission_Detail">
         <div class="container">
             <h1 class="section_title mb-4">{{ t('workFlow') }}</h1>
             <div class="row">
@@ -21,7 +21,7 @@ const commissionDetail = {
 
             </div>
         </div>
-    </header>
+    </section>
     `,
     setup() {
         const { t, tm } = useI18n()

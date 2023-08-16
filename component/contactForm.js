@@ -4,7 +4,7 @@ const { useVuelidate } = Vuelidate
 
 const contactForm = {
     template: `
-    <section id="contact" class="mb-5" style="position: relative;">
+    <section id="contact" class="py-5" style="position: relative;">
         <div class="container">
 
             <div class="text-danger">
@@ -110,7 +110,7 @@ const contactForm = {
                     <div class="modal-content">
                       <div class="modal-body">
                         <!--loading animation-->
-                        <div class="submit_modal">
+                        <div class="d-flex flex-column justify-content-center submit_modal">
                             <div id="animation">
 
                                 <div v-if="!formPostStat && formPostStatMessage.length" class="flex_center mb-4">
@@ -127,7 +127,7 @@ const contactForm = {
                                 <h3 class="loading">{{ !formPostStatMessage.length? t('upload') : formPostStatMessage }}</h3>
                             </div>
                         </div>
-                        <div class="flex_center">
+                        <div class="d-flex justify-content-center">
                             <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
                         </div>
                       </div>
@@ -139,7 +139,7 @@ const contactForm = {
         </div>
 
         <div class="row form-decoration justify-content-end">
-            <div id="Pic" class="col-md-7 bg-cover h-100" style="background-image: url('images/makson-serpa-7KAInrNdG0U-unsplash.jpg'); top: 0; bottom:0; position: absolute;"></div>
+            <div id="Pic" class="col-md-7 bg-cover h-100"></div>
         </div>
     </section>
     `,

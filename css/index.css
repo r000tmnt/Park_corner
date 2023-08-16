@@ -50,8 +50,14 @@ body {
   background-color: #f8f9fa !important;
   overflow-x: hidden;
 }
+body .navbar {
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+}
 body .dropdown-menu .current_lang {
-  color: steelblue;
+  background-color: steelblue;
+  color: white;
 }
 body .dropdown-menu a {
   margin-left: 0.3vw;
@@ -71,6 +77,9 @@ body .row .logo img:hover {
   filter: brightness(0);
   transition: 0.5s;
 }
+body .row .link {
+  width: 25px;
+}
 body .row .demo {
   height: 33vh;
 }
@@ -89,12 +98,15 @@ body .row #detail {
   width: 100%;
   height: 20vh;
 }
+body .row #Pic {
+  background-image: url("../images/makson-serpa-7KAInrNdG0U-unsplash.jpg");
+  top: 3rem;
+  bottom: 0;
+  position: absolute;
+}
 body .row .submit_modal #animation {
   padding: 1% 2%;
   background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 body .row .submit_modal #animation .outterCircle {
   width: 200px;
@@ -145,43 +157,42 @@ body .img-thumbnail {
   -o-object-fit: cover;
      object-fit: cover;
 }
-body .flex_center {
-  display: flex;
-  justify-content: center;
-}
 body footer {
   color: white;
-}
-body footer .outterLinks {
-  display: flex;
-  justify-content: center;
-}
-body footer .outterLinks .link {
-  margin: 1vh 0.5vw;
-}
-body footer .outterLinks .link img {
-  width: 50px;
+  position: relative;
+  z-index: 10;
 }
 @media (max-width: 768px) {
+  body .navbar {
+    width: 100%;
+    margin-left: 1%;
+  }
   body #Commission_Detail {
     margin-top: 7vh;
   }
   body .row-mobile {
     margin-left: 0 !important;
+    opacity: 0.5;
   }
-  body .text {
-    color: white;
+  body #whoamI {
+    margin-bottom: 15px;
   }
-  body .refer {
-    color: lightgoldenrodyellow;
+  body .email {
+    flex-direction: column;
   }
-  body .refer:hover {
+  body .email .refer {
+    color: steelblue;
+  }
+  body .email .refer:hover {
     color: whitesmoke;
     background-color: rgba(34, 34, 34, 0.7);
     transition: 0.5s;
   }
   body .demo {
     height: 43vh !important;
+  }
+  body .ref-desc {
+    margin-top: 20px;
   }
   body .desktop {
     display: none;
@@ -192,15 +203,15 @@ body footer .outterLinks .link img {
   body .mobile tbody, body .mobile tr, body .mobile td {
     display: block;
   }
-  body .link {
-    width: 10%;
-  }
   body #Pic {
     margin-top: 3vh;
     position: static !important;
   }
   body .form-decoration {
     margin-right: 0 !important;
+  }
+  body #contact .row .col-md-4 {
+    width: 100%;
   }
 }
 @media (max-width: 576px) {
@@ -213,9 +224,6 @@ body footer .outterLinks .link img {
   body .submit_modal #animation #close {
     font-size: 1.2rem;
   }
-  body .link {
-    margin-right: 2vw !important;
-  }
 }
 @media (max-width: 480px) {
   body #Commission_Detail {
@@ -223,8 +231,5 @@ body footer .outterLinks .link img {
   }
   body .demo {
     height: 45vh !important;
-  }
-  body .link {
-    margin-right: 4vw !important;
   }
 }/*# sourceMappingURL=index.css.map */

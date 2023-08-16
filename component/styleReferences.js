@@ -12,7 +12,7 @@ const styleReferences = {
                     </h1>
 
                     <ul class="nav nav-tabs">
-                        <li class="nav-item mr-1" v-for="(style, index) in reference_styles_images" :key="index">
+                        <li class="nav-item mr-1 border-bottom-0" v-for="(style, index) in reference_styles_images" :key="index">
                             <a class="nav-link" href="#" @click.prevent="changeReferenceStyle(index)" :class="{ active: currentStyle === style.name }" >
                                 <span>{{ tm('reference_styles')[index] }}</span>
                             </a>
@@ -54,7 +54,7 @@ const styleReferences = {
                                 </div>
 
                             </div>
-                            <div class="col-md-6">
+                            <div class="ref-desc col-md-6">
                                 <h5 class="card-title">簡介:</h5>
                                 <p style="white-space: break-spaces">
                                     {{ tm('reference_caption')[getReferenceStyleIndex] }}
