@@ -17,7 +17,7 @@ const selfIntroduction = {
                     <div class="row mt-3 text">
                         <div class="col-md-6" id="whoamI">
                             <h4>{{ t('link') }}:</h4>
-                            <a class="link me-3" v-for="link in outerLinks" :href="link.url">
+                            <a class="link me-3" v-for="link in outerLinks" :href="link.url" target="_blank">
                                 <img :src="link.icon" :alt="link.name" class="link">
                             </a>
                         </div>

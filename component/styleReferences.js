@@ -22,7 +22,7 @@ const styleReferences = {
                     <!-- Context of the style -->
                     <div class="card mb-4">
                         <div class="card-body row">
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <img class="img-fluid" style="width: 500px; height: 500px; object-fit: cover;" :src="current_reference_style.images[current_reference_style_images_index]" :alt="currentStyle">
                          
                                 <div id="carouselExampleFade" class="carousel mt-4" style="width: 500px; height: 100px">
@@ -54,7 +54,7 @@ const styleReferences = {
                                 </div>
 
                             </div>
-                            <div class="ref-desc col-md-6">
+                            <div class="ref-desc col-md-7">
                                 <h5 class="card-title">簡介:</h5>
                                 <p style="white-space: break-spaces">
                                     {{ tm('reference_caption')[getReferenceStyleIndex] }}
