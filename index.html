@@ -81,6 +81,27 @@
 
       console.log(withI18nMessage)    
 
+      // 表單驗證規則加上客製化的驗證訊息
+      const rules = {
+            name: { 
+                required: withI18nMessage(required) 
+            },
+            tel: { 
+                numeric: withI18nMessage(numeric), 
+                maxLength: withI18nMessage(maxLength(12))
+            },
+            email: { 
+                required: withI18nMessage(required),
+                email: withI18nMessage(email) 
+            },
+            type: { 
+                required: withI18nMessage(required)  
+            },
+            desc: { 
+                required: withI18nMessage(required) 
+            }
+        } 
+
       const app = createApp({
         components: {
           Navbar,
