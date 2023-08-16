@@ -63,6 +63,7 @@
                 "模仿動畫的上色方式，有較為單純的氛圍與明確的色塊邊界",
                 "模仿油彩的上色方式，有較為真實的氛圍與更多的層次變化",
             ],
+            example: "舉例",
             reference_example: [
                 "頭像: 無背景，NT 300\n半身像: 無背景，NT 450\n全身像: 簡單背景，NT 750",
                 "頭像: 簡單背景，NT 1000\n半身像: 簡單背景，NT 1500\n全身像: 簡單背景，NT 2500",
@@ -73,6 +74,7 @@
                 "NT 1500",
                 "NT 2550"
             ],
+            ps: "備註",
             reference_ps: "追加人物 NT 500(一個角色)\n加背景 NT 500~900(依複雜程度而定)\n繪師會與你聯絡確開始時間立與追蹤進度，委託預設一個禮拜完成",
             form_field_name: "姓名: ",
             form_field_tel: "電話: ",
@@ -108,16 +110,16 @@
             types_caption: [
                 "Help you perfect the image of your own character",
                 "Shorten the distance between imagination and reality",
-                "The sence of narrative at a glance",
+                "The sense of narrative at a glance",
                 "Together, we can make things better"
             ],
             service: [
                 "Mutual interest",
                 "Time management",
-                "Variaty of style"
+                "Variety of style"
             ],
             serviceDesc: [
-                "Seek the produt that will satisfy both side.",
+                "Seek the product that will satisfy both side.",
                 "Freelance is duty to not meet the deadline, contact regularly.",
                 "Simplify, cel-shading or oil paint-ish? The style is your choice."
             ],
@@ -132,7 +134,7 @@
                         "Please send the request by direct message or email. Basically, the commission work can be use for personal collection.。",
                         "Please tag the artist when you post the illustration on social media(FB, TWITTER...etc).",
                         "The default size is A4 with 300dpi. Please state the number in cm or pixel if it is not A4.",
-                        "The artist accepts original ideas, deriviative work and furry. Themes with NSFW can be discuss, but not include gore. Please provide with references when ask for commission."
+                        "The artist accepts original ideas, derivative work and furry. Themes with NSFW can be discuss, but not include gore. Please provide with references when ask for commission."
                     ],
                 },
                 {
@@ -157,6 +159,7 @@
                 "Imitate the look and the feeling of cel animation, with defined outline of colors.",
                 "Imitate the look and the feeling of oil painting, looks more realistic with blurring colors.",
             ],
+            example: "Example",
             reference_example: [
                 "Avatar: No background, 10 USD\nHalf body: No background, 15 USD\nFull body: Simple background, 25 USD",
                 "Avatar: Simple background, 35 USD\nHalf body: Simple background, 52.5 USD\nFull body: Simple background, 87.5 USD",
@@ -167,6 +170,7 @@
                 "52.5 USD",
                 "150 USD"
             ],
+            ps: "P.S",
             reference_ps: "17 USD for additional character. (per character)\n17 ~ 31 USD for additional background. (depends on complexity)\nThe artist will contact the client to discuss about the context and when to start or check on the porgress. The default time span for a commission to be finished is one week.",
             form_field_name: "Name: ",
             form_field_tel: "TEL: ",

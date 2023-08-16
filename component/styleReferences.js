@@ -55,17 +55,17 @@ const styleReferences = {
 
                             </div>
                             <div class="ref-desc col-md-7">
-                                <h5 class="card-title">簡介:</h5>
+                                <h5 class="card-title">{{ t('reference') }}:</h5>
                                 <p style="white-space: break-spaces">
                                     {{ tm('reference_caption')[getReferenceStyleIndex] }}
                                 </p>
 
-                                <h5 class="card-title">舉例:</h5>
+                                <h5 class="card-title">{{ t('example') }}:</h5>
                                 <p style="white-space: break-spaces">
                                     {{ tm('reference_example')[getReferenceStyleIndex] }}
                                 </p>
 
-                                <h5 class="card-title">備註:</h5>
+                                <h5 class="card-title">{{ t('ps') }}:</h5>
                                 <p style="white-space: break-spaces">
                                     {{ t('reference_ps') }}
                                 </p>
